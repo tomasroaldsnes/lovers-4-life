@@ -35,7 +35,7 @@ const CardMetamask = () => (
 const CardForm = () => (
     
     <Card>
-      <Image src='https://yt3.ggpht.com/a-/AJLlDp29i67qzhS1E46MPzrY0Q9ZGurI8zEAc_ITBQ=s900-mo-c-c0xffffffff-rj-k-no' />
+      <Image src='https://www.shareicon.net/data/2015/08/20/87939_add_512x512.png' />
       <Card.Content>
         <Card.Header>
           Fill out the form below
@@ -53,7 +53,7 @@ const CardForm = () => (
   const CardPay = () => (
     
     <Card>
-      <Image src='https://yt3.ggpht.com/a-/AJLlDp29i67qzhS1E46MPzrY0Q9ZGurI8zEAc_ITBQ=s900-mo-c-c0xffffffff-rj-k-no' />
+      <Image src='https://www.shareicon.net/download/2015/10/03/111192_money_512x512.png' />
       <Card.Content>
         <Card.Header>
           Accept the Transaction

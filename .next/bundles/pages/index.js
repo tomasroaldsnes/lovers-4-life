@@ -184,7 +184,7 @@ var FormLovers = function (_Component) {
                                 }
                             })
                         ),
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["m" /* TextArea */],
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* TextArea */],
                             value: this.state.why,
                             transparent: true,
                             label: 'Why do you love your partner?',
@@ -205,14 +205,14 @@ var FormLovers = function (_Component) {
                                 }
                             },
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */],
                                 { hidden: !this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 79
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Content,
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
@@ -220,7 +220,7 @@ var FormLovers = function (_Component) {
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Header,
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
@@ -233,14 +233,14 @@ var FormLovers = function (_Component) {
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */],
                                 { hidden: !this.state.error, negative: this.state.error, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 85
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Content,
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
@@ -248,7 +248,7 @@ var FormLovers = function (_Component) {
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Header,
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
@@ -317,6 +317,20 @@ var FormLovers = function (_Component) {
                             }
                         },
                         'See all Lovers'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 106
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        'a',
+                        { href: 'https://github.com/tomasroaldsnes/lovers-4-life', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 107
+                            }
+                        },
+                        'GitHub'
                     )
                 )
             );
@@ -60697,7 +60711,7 @@ Loader.propTypes =  true ? {
   size: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.oneOf(__WEBPACK_IMPORTED_MODULE_4__lib__["c" /* SUI */].SIZES)
 } : {};
 
-/* harmony default export */ __webpack_exports__["a"] = (Loader);
+/* unused harmony default export */ var _unused_webpack_default_export = (Loader);
 
 /***/ }),
 
@@ -60706,7 +60720,7 @@ Loader.propTypes =  true ? {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Loader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Loader/Loader.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Loader__["a"]; });
+/* unused harmony reexport default */
 
 
 
@@ -61827,7 +61841,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__addons_Select__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/Select/index.js");
 /* unused harmony reexport Select */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/TextArea/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__addons_TransitionablePortal__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/TransitionablePortal/index.js");
 /* unused harmony reexport TransitionablePortal */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__behaviors_Visibility__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/behaviors/Visibility/index.js");
@@ -61873,7 +61887,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__collections_Menu_MenuMenu__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Menu/MenuMenu.js");
 /* unused harmony reexport MenuMenu */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__collections_Message__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_32__collections_Message__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_32__collections_Message__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__collections_Message_MessageContent__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/MessageContent.js");
 /* unused harmony reexport MessageContent */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__collections_Message_MessageHeader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/MessageHeader.js");
@@ -61947,7 +61961,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__elements_List_ListList__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/List/ListList.js");
 /* unused harmony reexport ListList */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__elements_Loader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Loader/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_69__elements_Loader__["a"]; });
+/* unused harmony reexport Loader */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__elements_Rail__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Rail/index.js");
 /* unused harmony reexport Rail */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__elements_Reveal__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Reveal/index.js");

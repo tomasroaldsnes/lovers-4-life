@@ -103,6 +103,9 @@ class FormLovers extends Component {
             <Divider hidden />
             <Divider hidden />
             <Button tiny inverted color='gray' onClick={this.seeAllLovers} >See all Lovers</Button>
+            <Divider hidden />
+            <a href="https://github.com/tomasroaldsnes/lovers-4-life">GitHub</a>
+
         </Container>
         
       </div>

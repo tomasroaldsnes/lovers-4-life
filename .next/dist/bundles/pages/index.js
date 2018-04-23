@@ -380,6 +380,20 @@ var FormLovers = function (_Component) {
                             }
                         },
                         'See all Lovers'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 106
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        'a',
+                        { href: 'https://github.com/tomasroaldsnes/lovers-4-life', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 107
+                            }
+                        },
+                        'GitHub'
                     )
                 )
             );

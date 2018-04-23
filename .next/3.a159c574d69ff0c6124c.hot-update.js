@@ -180,7 +180,7 @@ var FormLovers = function (_Component) {
                                 }
                             })
                         ),
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["m" /* TextArea */],
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* TextArea */],
                             value: this.state.why,
                             transparent: true,
                             label: 'Why do you love your partner?',
@@ -201,14 +201,14 @@ var FormLovers = function (_Component) {
                                 }
                             },
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */],
                                 { hidden: !this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 79
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Content,
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
@@ -216,7 +216,7 @@ var FormLovers = function (_Component) {
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Header,
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
@@ -229,14 +229,14 @@ var FormLovers = function (_Component) {
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */],
                                 { hidden: !this.state.error, negative: this.state.error, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 85
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Content,
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
@@ -244,7 +244,7 @@ var FormLovers = function (_Component) {
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Header,
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
@@ -313,6 +313,25 @@ var FormLovers = function (_Component) {
                             }
                         },
                         'See all Lovers'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 106
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 107
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        'a',
+                        { href: 'https://github.com/tomasroaldsnes/lovers-4-life', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 108
+                            }
+                        },
+                        'GitHub'
                     )
                 )
             );
@@ -353,4 +372,4 @@ var _default = FormLovers;
 /***/ })
 
 })
-//# sourceMappingURL=3.25a3662880230eb8c8bf.hot-update.js.map
+//# sourceMappingURL=3.a159c574d69ff0c6124c.hot-update.js.map

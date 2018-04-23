@@ -351,27 +351,35 @@ var FormLovers = function (_Component) {
                                     }
                                 }),
                                 'Submit to blockchain'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 96
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 97
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"],
-                                { tiny: true, inverted: true, color: 'gray', onClick: this.seeAllLovers, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 98
-                                    }
-                                },
-                                'See all Lovers'
                             )
                         )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Container"],
+                    { textAlign: 'center', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 102
+                        }
+                    },
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 103
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 104
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"],
+                        { tiny: true, inverted: true, color: 'gray', onClick: this.seeAllLovers, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 105
+                            }
+                        },
+                        'See all Lovers'
                     )
                 )
             );
@@ -1196,7 +1204,7 @@ var Header1 = function Header1() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3__ = __webpack_require__("./ethereum/web3.js");
 
 
-var address = '0x8EAA1C4521Ee774692ac7519652f61EBb748d190';
+var address = '0xE5bb212f0141e1B9664B449F45588B942E0927Be';
 
 var abi = [{ "constant": true, "inputs": [], "name": "amountOfLovers", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "l1", "type": "string" }, { "name": "l2", "type": "string" }, { "name": "message", "type": "string" }], "name": "createLover", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "loverList", "outputs": [{ "name": "lover1", "type": "string" }, { "name": "lover2", "type": "string" }, { "name": "whyDoYouLove", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "user", "type": "address" }], "name": "findLover", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }];
 

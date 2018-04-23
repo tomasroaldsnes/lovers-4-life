@@ -81,24 +81,28 @@ class FormLovers extends Component {
                 <Message.Header>Just one second</Message.Header>
                 Foreverizing your love. Please accept the transaction in the MetaMask plugin.
                 </Message.Content>
-        </Message>
-        <Message hidden={!this.state.error} negative={this.state.error}>
-                <Message.Content>
-                <Message.Header>Oops!</Message.Header>
-                    Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?
-                </Message.Content>
-        </Message>
+                </Message>
+                <Message hidden={!this.state.error} negative={this.state.error}>
+                        <Message.Content>
+                        <Message.Header>Oops!</Message.Header>
+                            Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?
+                        </Message.Content>
+                </Message>
             <Divider hidden />
             <Divider hidden />
             <Divider hidden />
                 <Form.Field control={Button} icon color='yellow' labelPosition='left' loading={this.state.isLoading}>
                 <Icon name='heart' color='red'/>Submit to blockchain</Form.Field>
-                <Divider hidden />
-                <Divider hidden />
-                <Button tiny inverted color='gray' onClick={this.seeAllLovers} >See all Lovers</Button>
+                
+                
             </Container>
       </Form>
-      
+            
+        </Container>
+        <Container textAlign='center'>
+            <Divider hidden />
+            <Divider hidden />
+            <Button tiny inverted color='gray' onClick={this.seeAllLovers} >See all Lovers</Button>
         </Container>
         
       </div>

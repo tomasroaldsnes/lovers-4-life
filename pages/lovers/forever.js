@@ -78,7 +78,7 @@ export default class LoverForever extends Component{
                 <div>
                 <Header as='h1' inverted>It's official!</Header>
                 <Header as='h2' inverted>{this.props.yourName} + {this.props.loversName} = TRUE </Header>
-                <Header as='h3' inverted >{this.props.yourName} loves {this.props.loversName} because:  {this.props.message}</Header>
+                <Header as='h3' inverted >{this.props.yourName} loves {this.props.loversName} because {this.props.message}</Header>
                 <Header as='h4' inverted >Don't go ahead and break up now...</Header>
                 <Divider hidden></Divider>
                 <Button onClick={this.seeAll} inverted color='purple'>See All Lovers</Button>

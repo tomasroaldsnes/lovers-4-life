@@ -101,7 +101,7 @@ export default class LoverAll extends Component{
               <Parallax.Layer
                 offset={0}
                 speed={0.1}
-                factor={2}
+                factor={1.2}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Container>
                     {this.listRender()}

@@ -1,8 +1,1246 @@
 module.exports =
 
-        __NEXT_REGISTER_PAGE('/lovers/forever', function() {
+        __NEXT_REGISTER_PAGE('/', function() {
           var comp = 
-      webpackJsonp([4],{
+      webpackJsonp([3],{
+
+/***/ "./components/Form.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__ = __webpack_require__("./ethereum/lover.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
+
+var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+(function () {
+    var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+
+    enterModule && enterModule(module);
+})();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var FormLovers = function (_Component) {
+    _inherits(FormLovers, _Component);
+
+    function FormLovers() {
+        var _ref,
+            _this2 = this;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, FormLovers);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FormLovers.__proto__ || Object.getPrototypeOf(FormLovers)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            yourName: '',
+            partnersName: '',
+            why: '',
+            isLoading: false,
+            payment: 9000000000000000,
+            error: false,
+            errorMessage: ''
+        }, _this.onSubmit = function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(event) {
+                var accounts, newCampaign;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                event.preventDefault();
+                                _context.prev = 1;
+
+                                _this.setState({ error: false });
+                                _this.setState({ isLoading: true });
+                                _context.next = 6;
+                                return __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].eth.getAccounts();
+
+                            case 6:
+                                accounts = _context.sent;
+                                _context.next = 9;
+                                return __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__["a" /* default */].methods.createLover(_this.state.yourName, _this.state.partnersName, _this.state.why).send({
+                                    from: accounts[0],
+                                    value: _this.state.payment
+                                });
+
+                            case 9:
+                                newCampaign = _context.sent;
+
+                                __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/' + accounts[0]);
+
+                                //this.setState({isLoading: false});
+
+                                _context.next = 16;
+                                break;
+
+                            case 13:
+                                _context.prev = 13;
+                                _context.t0 = _context['catch'](1);
+
+                                _this.setState({
+                                    error: true,
+                                    isLoading: false,
+                                    errorMessage: _context.t0.message
+                                });
+
+                            case 16:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, _this2, [[1, 13]]);
+            }));
+
+            return function (_x) {
+                return _ref2.apply(this, arguments);
+            };
+        }(), _this.seeAllLovers = function () {
+            __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/all');
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(FormLovers, [{
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            var value = this.state.value;
+
+            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'div',
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 52
+                    }
+                },
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 53
+                        }
+                    },
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */],
+                        { onSubmit: this.onSubmit, inverted: true, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 54
+                            }
+                        },
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Group,
+                            { widths: 'equal', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 55
+                                }
+                            },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["j" /* Input */],
+                                value: this.state.yourName,
+                                label: 'Your name',
+                                onChange: function onChange(event) {
+                                    return _this3.setState({ yourName: event.target.value });
+                                },
+                                placeholder: 'Your name', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 56
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["j" /* Input */],
+                                value: this.state.partnersName,
+                                label: 'Partners name',
+                                onChange: function onChange(event) {
+                                    return _this3.setState({ partnersName: event.target.value });
+                                },
+                                placeholder: 'Partners name', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 62
+                                }
+                            })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["m" /* TextArea */],
+                            value: this.state.why,
+                            transparent: true,
+                            label: 'Why do you love your partner?',
+                            onChange: function onChange(event) {
+                                return _this3.setState({ why: event.target.value });
+                            },
+                            placeholder: 'Proclaim your love!', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 70
+                            }
+                        }),
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
+                            { textAlign: 'center', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 77
+                                }
+                            },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 78
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 79
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 80
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field,
+                                { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["a" /* Button */], icon: true, labelPosition: 'left', primary: true, loading: this.state.isLoading, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 81
+                                    }
+                                },
+                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'red', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 82
+                                    }
+                                }),
+                                'Submit to blockchain'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 83
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 84
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["a" /* Button */],
+                                { tiny: true, onClick: this.seeAllLovers, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 85
+                                    }
+                                },
+                                'See all Lovers'
+                            )
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
+                        { hidden: !this.state.isLoading, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 88
+                            }
+                        },
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 89
+                                }
+                            },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 90
+                                    }
+                                },
+                                'Just one second'
+                            ),
+                            'Foreverizing your love. Please accept the transaction in the MetaMask plugin.'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
+                        { hidden: !this.state.error, negative: this.state.error, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 94
+                            }
+                        },
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 95
+                                }
+                            },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 96
+                                    }
+                                },
+                                'Oops!'
+                            ),
+                            'Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?'
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: '__reactstandin__regenerateByEval',
+        value: function __reactstandin__regenerateByEval(key, code) {
+            this[key] = eval(code);
+        }
+    }]);
+
+    return FormLovers;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+
+var _default = FormLovers;
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+;
+
+(function () {
+    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+
+    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+
+    if (!reactHotLoader) {
+        return;
+    }
+
+    reactHotLoader.register(FormLovers, 'FormLovers', '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js');
+    reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js');
+    leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./components/Join.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__ = __webpack_require__("./ethereum/lover.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
+
+var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Join.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+(function () {
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var Join = function (_Component) {
+  _inherits(Join, _Component);
+
+  function Join() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Join);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Join.__proto__ || Object.getPrototypeOf(Join)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      allLovers: undefined
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Join, [{
+    key: 'componentWillMount',
+    value: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var amountOfLovers;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+
+                this.setState({ isLoading: true });
+
+                //const lover = Campaign(props.query.address);
+                _context.next = 3;
+                return __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__["a" /* default */].methods.amountOfLovers().call();
+
+              case 3:
+                amountOfLovers = _context.sent;
+
+
+                this.setState({ allLovers: amountOfLovers });
+
+              case 5:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentWillMount() {
+        return _ref2.apply(this, arguments);
+      }
+
+      return componentWillMount;
+    }()
+  }, {
+    key: 'render',
+    value: function render() {
+      var value = this.state.value;
+
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 28
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 29
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
+            { as: 'h1', textAlign: 'center', inverted: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 31
+              }
+            },
+            'Join the ',
+            this.state.allLovers,
+            ' lovers that has already made their love public.'
+          )
+        )
+      );
+    }
+  }, {
+    key: '__reactstandin__regenerateByEval',
+    value: function __reactstandin__regenerateByEval(key, code) {
+      this[key] = eval(code);
+    }
+  }]);
+
+  return Join;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+
+var _default = Join;
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(Join, 'Join', '/home/tomasroaldsnes/Code/lovers-for-life/components/Join.js');
+  reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Join.js');
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./components/Layout.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_head__ = __webpack_require__("./node_modules/next/head.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_head___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_head__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Paralax__ = __webpack_require__("./components/Paralax.js");
+var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Layout.js';
+
+(function () {
+    var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+
+    enterModule && enterModule(module);
+})();
+
+
+
+
+
+
+var _default = function _default(props) {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 8
+            }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_next_head___default.a,
+            {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 10
+                }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 11
+                }
+            })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Paralax__["a" /* default */], {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13
+            }
+        })
+    );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+;
+
+(function () {
+    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+
+    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+
+    if (!reactHotLoader) {
+        return;
+    }
+
+    reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Layout.js');
+    leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./components/Paralax.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_spring__ = __webpack_require__("./node_modules/react-spring/dist/react-spring.es.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Form__ = __webpack_require__("./components/Form.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Join__ = __webpack_require__("./components/Join.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
+var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js',
+    _this = this;
+
+(function () {
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+
+
+
+
+
+
+
+
+// Little helpers ...
+var url = function url(name) {
+  var wrap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  return (wrap ? 'url(' : '') + 'https://awv3node-homepage.surge.sh/build/assets/' + name + '.svg' + (wrap ? ')' : '');
+};
+var Pink = function Pink(_ref) {
+  var children = _ref.children;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'span',
+    { style: { color: '#FF6AC1' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      }
+    },
+    children
+  );
+};
+var Yellow = function Yellow(_ref2) {
+  var children = _ref2.children;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'span',
+    { style: { color: '#EFF59B' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
+      }
+    },
+    children
+  );
+};
+var Lightblue = function Lightblue(_ref3) {
+  var children = _ref3.children;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'span',
+    { style: { color: '#9AEDFE' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      }
+    },
+    children
+  );
+};
+var Green = function Green(_ref4) {
+  var children = _ref4.children;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'span',
+    { style: { color: '#57EE89' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      }
+    },
+    children
+  );
+};
+var Blue = function Blue(_ref5) {
+  var children = _ref5.children;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'span',
+    { style: { color: '#57C7FF' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      }
+    },
+    children
+  );
+};
+var Gray = function Gray(_ref6) {
+  var children = _ref6.children;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'span',
+    { style: { color: '#909090' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      }
+    },
+    children
+  );
+};
+
+var CardMetamask = function CardMetamask() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */],
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'https://yt3.ggpht.com/a-/AJLlDp29i67qzhS1E46MPzrY0Q9ZGurI8zEAc_ITBQ=s900-mo-c-c0xffffffff-rj-k-no', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Content,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Header,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 23
+          }
+        },
+        'Install Meta Mask'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        },
+        'Download Meta Mask from their website ',
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'a',
+          { href: 'https://metamask.io/', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            }
+          },
+          'here.'
+        )
+      )
+    )
+  );
+};
+
+var CardForm = function CardForm() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */],
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'https://www.shareicon.net/data/2015/08/20/87939_add_512x512.png', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Content,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Header,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43
+          }
+        },
+        'Fill out the form below'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 47
+          }
+        },
+        'Put in your name, your partners name and why you love them.'
+      )
+    )
+  );
+};
+
+var CardPay = function CardPay() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */],
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'https://www.shareicon.net/download/2015/10/03/111192_money_512x512.png', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Content,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Header,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 61
+          }
+        },
+        'Accept the Transaction'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65
+          }
+        },
+        'It costs 0.009 ETH to proclaim your love forever.'
+      )
+    )
+  );
+};
+
+var GridStuff = function GridStuff() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
+        { as: 'h1', textAlign: 'center', inverted: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 77
+          }
+        },
+        'How It Works'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */],
+        { columns: 'equal', divided: true, inverted: true, padded: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 78
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Row,
+          { color: '#909090', textAlign: 'center', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 79
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Column,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 80
+              }
+            },
+            CardMetamask()
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Column,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 83
+              }
+            },
+            CardForm()
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Column,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 86
+              }
+            },
+            CardPay()
+          )
+        )
+      )
+    )
+  );
+};
+
+var Header1 = function Header1() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
+    { as: 'h2', icon: true, inverted: true, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 97
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'red', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 98
+      }
+    }),
+    'Blockchain is forever. Love should be too.',
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */].Subheader,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100
+        }
+      },
+      'Proclaim your love for your partner on the Ethereum Blockchain.'
+    )
+  );
+};
+
+var _default = function _default() {
+
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */],
+    { ref: function ref(_ref7) {
+        return _this.parallax = _ref7;
+      }, pages: 4, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 112
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 1, speed: 1, style: { backgroundColor: '#390044' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 113
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 2, speed: 1, style: { backgroundColor: '#87BCDE' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 114
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 0, speed: 0, factor: 4, style: { backgroundColor: '#390044', backgroundSize: 'cover' }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 116
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 0.3, speed: -0.3, style: { pointerEvents: 'none' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('satellite4'), style: { width: '15%', marginLeft: '70%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 0, speed: 0.8, style: { opacity: 0.1 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '55%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '15%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 0.75, speed: 0.5, style: { opacity: 0.1 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '70%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '40%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 129
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 0, speed: 0.2, style: { opacity: 0.2 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 132
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '10%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 133
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '75%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 134
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 0.6, speed: -0.1, style: { opacity: 0.4 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 137
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 138
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 139
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 140
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 1.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 143
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 144
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 145
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 2, speed: -0.1, style: { opacity: 0.4 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 148
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 149
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 150
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 2.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 153
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 154
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 155
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      { offset: 3, speed: -0.1, style: { opacity: 0.4 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 158
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 159
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 160
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 161
+        }
+      })
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      {
+        offset: 0,
+        speed: 0.1,
+        onClick: function onClick() {
+          return _this.parallax.scrollTo(1);
+        },
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 168
+        }
+      },
+      Header1()
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      {
+        offset: 1,
+        speed: 0.3,
+        onClick: function onClick() {
+          return _this.parallax.scrollTo(2);
+        },
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 176
+        }
+      },
+      GridStuff()
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
+      {
+        offset: 2,
+        speed: 0.3,
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 185
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 190
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Join__["a" /* default */], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 191
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 192
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 193
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Form__["a" /* default */], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 194
+          }
+        })
+      )
+    )
+  );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(url, 'url', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Pink, 'Pink', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Yellow, 'Yellow', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Lightblue, 'Lightblue', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Green, 'Green', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Blue, 'Blue', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Gray, 'Gray', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(CardMetamask, 'CardMetamask', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(CardForm, 'CardForm', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(CardPay, 'CardPay', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(GridStuff, 'GridStuff', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(Header1, 'Header1', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
 
 /***/ "./ethereum/lover.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -36058,6 +37296,14 @@ var warnLink = (0, _utils.execOnce)(_utils.warn);
 
 /***/ }),
 
+/***/ "./node_modules/next/head.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./node_modules/next/dist/lib/head.js")
+
+
+/***/ }),
+
 /***/ "./node_modules/next/link.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53288,7 +54534,7 @@ Form.propTypes =  true ? {
 } : {};
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Form);
+/* harmony default export */ __webpack_exports__["a"] = (Form);
 
 /***/ }),
 
@@ -53953,7 +55199,7 @@ FormTextArea.defaultProps = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Form__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
-/* unused harmony reexport default */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Form__["a"]; });
 
 
 
@@ -54303,7 +55549,7 @@ GridRow.propTypes =  true ? {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Grid__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* unused harmony reexport default */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
 
 
 
@@ -55018,7 +56264,7 @@ Message.Header = __WEBPACK_IMPORTED_MODULE_13__MessageHeader__["a" /* default */
 Message.List = __WEBPACK_IMPORTED_MODULE_14__MessageList__["a" /* default */];
 Message.Item = __WEBPACK_IMPORTED_MODULE_15__MessageItem__["a" /* default */];
 Message.handledProps = ['as', 'attached', 'children', 'className', 'color', 'compact', 'content', 'error', 'floating', 'header', 'hidden', 'icon', 'info', 'list', 'negative', 'onDismiss', 'positive', 'size', 'success', 'visible', 'warning'];
-/* unused harmony default export */ var _unused_webpack_default_export = (Message);
+/* harmony default export */ __webpack_exports__["a"] = (Message);
 Message.propTypes =  true ? {
   /** An element type to render as (string or function). */
   as: __WEBPACK_IMPORTED_MODULE_10__lib__["n" /* customPropTypes */].as,
@@ -55379,7 +56625,7 @@ MessageList.create = Object(__WEBPACK_IMPORTED_MODULE_5__lib__["m" /* createShor
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Message__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/Message.js");
-/* unused harmony reexport default */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Message__["a"]; });
 
 
 
@@ -56907,7 +58153,7 @@ Divider.propTypes =  true ? {
   vertical: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.bool
 } : {};
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Divider);
+/* harmony default export */ __webpack_exports__["a"] = (Divider);
 
 /***/ }),
 
@@ -56916,7 +58162,7 @@ Divider.propTypes =  true ? {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Divider__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Divider/Divider.js");
-/* unused harmony reexport default */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Divider__["a"]; });
 
 
 
@@ -60572,7 +61818,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__addons_Select__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/Select/index.js");
 /* unused harmony reexport Select */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/TextArea/index.js");
-/* unused harmony reexport TextArea */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__addons_TransitionablePortal__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/TransitionablePortal/index.js");
 /* unused harmony reexport TransitionablePortal */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__behaviors_Visibility__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/behaviors/Visibility/index.js");
@@ -60584,7 +61830,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__collections_Breadcrumb_BreadcrumbSection__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Breadcrumb/BreadcrumbSection.js");
 /* unused harmony reexport BreadcrumbSection */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__collections_Form__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Form/index.js");
-/* unused harmony reexport Form */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_15__collections_Form__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__collections_Form_FormButton__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Form/FormButton.js");
 /* unused harmony reexport FormButton */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__collections_Form_FormCheckbox__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Form/FormCheckbox.js");
@@ -60604,7 +61850,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__collections_Form_FormTextArea__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Form/FormTextArea.js");
 /* unused harmony reexport FormTextArea */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__collections_Grid__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Grid/index.js");
-/* unused harmony reexport Grid */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_25__collections_Grid__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__collections_Grid_GridColumn__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Grid/GridColumn.js");
 /* unused harmony reexport GridColumn */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__collections_Grid_GridRow__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Grid/GridRow.js");
@@ -60618,7 +61864,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__collections_Menu_MenuMenu__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Menu/MenuMenu.js");
 /* unused harmony reexport MenuMenu */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__collections_Message__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/index.js");
-/* unused harmony reexport Message */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_32__collections_Message__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__collections_Message_MessageContent__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/MessageContent.js");
 /* unused harmony reexport MessageContent */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__collections_Message_MessageHeader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/MessageHeader.js");
@@ -60652,25 +61898,25 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__elements_Container__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Container/index.js");
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_48__elements_Container__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__elements_Divider__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Divider/index.js");
-/* unused harmony reexport Divider */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_49__elements_Divider__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__elements_Flag__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Flag/index.js");
 /* unused harmony reexport Flag */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__elements_Header__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Header/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_51__elements_Header__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_51__elements_Header__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__elements_Header_HeaderContent__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Header/HeaderContent.js");
 /* unused harmony reexport HeaderContent */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__elements_Header_HeaderSubheader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Header/HeaderSubheader.js");
 /* unused harmony reexport HeaderSubheader */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__elements_Icon__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Icon/index.js");
-/* unused harmony reexport Icon */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_54__elements_Icon__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__elements_Icon_IconGroup__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Icon/IconGroup.js");
 /* unused harmony reexport IconGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__elements_Image__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Image/index.js");
-/* unused harmony reexport Image */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_56__elements_Image__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__elements_Image_ImageGroup__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Image/ImageGroup.js");
 /* unused harmony reexport ImageGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__elements_Input__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Input/index.js");
-/* unused harmony reexport Input */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_58__elements_Input__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__elements_Label__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Label/index.js");
 /* unused harmony reexport Label */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__elements_Label_LabelDetail__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Label/LabelDetail.js");
@@ -60692,7 +61938,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__elements_List_ListList__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/List/ListList.js");
 /* unused harmony reexport ListList */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__elements_Loader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Loader/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_69__elements_Loader__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_69__elements_Loader__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__elements_Rail__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Rail/index.js");
 /* unused harmony reexport Rail */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__elements_Reveal__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Reveal/index.js");
@@ -99970,33 +101216,23 @@ function extend() {
 
 /***/ }),
 
-/***/ "./pages/lovers/forever.js":
+/***/ "./pages/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_spring__ = __webpack_require__("./node_modules/react-spring/dist/react-spring.es.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_lover__ = __webpack_require__("./ethereum/lover.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes__ = __webpack_require__("./routes.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__routes__);
-
-var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js';
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Layout__ = __webpack_require__("./components/Layout.js");
+var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/pages/index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 (function () {
-        var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+    var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
 
-        enterModule && enterModule(module);
+    enterModule && enterModule(module);
 })();
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -100007,269 +101243,62 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var LoverIndex = function (_Component) {
+    _inherits(LoverIndex, _Component);
 
+    function LoverIndex() {
+        _classCallCheck(this, LoverIndex);
 
+        return _possibleConstructorReturn(this, (LoverIndex.__proto__ || Object.getPrototypeOf(LoverIndex)).apply(this, arguments));
+    }
 
-
-// Little helpers ...
-var url = function url(name) {
-        var wrap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-        return (wrap ? 'url(' : '') + 'https://awv3node-homepage.surge.sh/build/assets/' + name + '.svg' + (wrap ? ')' : '');
-};
-
-var LoverForever = function (_Component) {
-        _inherits(LoverForever, _Component);
-
-        function LoverForever() {
-                _classCallCheck(this, LoverForever);
-
-                return _possibleConstructorReturn(this, (LoverForever.__proto__ || Object.getPrototypeOf(LoverForever)).apply(this, arguments));
+    _createClass(LoverIndex, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 10
+                    }
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Layout__["a" /* default */], {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 11
+                    }
+                })
+            );
         }
+    }, {
+        key: '__reactstandin__regenerateByEval',
+        value: function __reactstandin__regenerateByEval(key, code) {
+            this[key] = eval(code);
+        }
+    }]);
 
-        _createClass(LoverForever, [{
-                key: 'seeAll',
-                value: function seeAll() {
-                        __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute('/lovers/all');
-                }
-        }, {
-                key: 'render',
-                value: function render() {
-                        var _this2 = this;
+    return LoverIndex;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-                        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                'div',
-                                {
-                                        __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 41
-                                        }
-                                },
-                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('link', { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css', __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 43
-                                        }
-                                }),
-                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */],
-                                        { ref: function ref(_ref) {
-                                                        return _this2.parallax = _ref;
-                                                }, pages: 1, __source: {
-                                                        fileName: _jsxFileName,
-                                                        lineNumber: 48
-                                                }
-                                        },
-                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer, { offset: 0, speed: 0, factor: 3, style: { backgroundColor: '#390044', backgroundSize: 'cover' }, __source: {
-                                                        fileName: _jsxFileName,
-                                                        lineNumber: 51
-                                                }
-                                        }),
-                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
-                                                { offset: 0, speed: 0.8, style: { opacity: 0.1 }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 55
-                                                        }
-                                                },
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '55%' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 56
-                                                        }
-                                                }),
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '15%' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 57
-                                                        }
-                                                })
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
-                                                { offset: 0.75, speed: 0.5, style: { opacity: 0.1 }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 60
-                                                        }
-                                                },
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '70%' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 61
-                                                        }
-                                                }),
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '40%' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 62
-                                                        }
-                                                })
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
-                                                { offset: 0, speed: 0.2, style: { opacity: 0.2 }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 65
-                                                        }
-                                                },
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '10%' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 66
-                                                        }
-                                                }),
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '75%' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 67
-                                                        }
-                                                })
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
-                                                {
-                                                        offset: 0,
-                                                        speed: 0.1,
-                                                        onClick: function onClick() {
-                                                                return _this2.parallax.scrollTo(1);
-                                                        },
-                                                        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
-                                                                fileName: _jsxFileName,
-                                                                lineNumber: 72
-                                                        }
-                                                },
-                                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                        'div',
-                                                        {
-                                                                __source: {
-                                                                        fileName: _jsxFileName,
-                                                                        lineNumber: 77
-                                                                }
-                                                        },
-                                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["d" /* Header */],
-                                                                { as: 'h1', inverted: true, __source: {
-                                                                                fileName: _jsxFileName,
-                                                                                lineNumber: 78
-                                                                        }
-                                                                },
-                                                                'It\'s official!'
-                                                        ),
-                                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["d" /* Header */],
-                                                                { as: 'h2', inverted: true, __source: {
-                                                                                fileName: _jsxFileName,
-                                                                                lineNumber: 79
-                                                                        }
-                                                                },
-                                                                this.props.yourName,
-                                                                ' + ',
-                                                                this.props.loversName,
-                                                                ' = TRUE '
-                                                        ),
-                                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["d" /* Header */],
-                                                                { as: 'h3', inverted: true, __source: {
-                                                                                fileName: _jsxFileName,
-                                                                                lineNumber: 80
-                                                                        }
-                                                                },
-                                                                'The reason ',
-                                                                this.props.yourName,
-                                                                ' loves ',
-                                                                this.props.loversName,
-                                                                ', is because:  ',
-                                                                this.props.message
-                                                        ),
-                                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["d" /* Header */],
-                                                                { as: 'h4', inverted: true, __source: {
-                                                                                fileName: _jsxFileName,
-                                                                                lineNumber: 81
-                                                                        }
-                                                                },
-                                                                'Don\'t go ahead and break up now...'
-                                                        ),
-                                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["a" /* Button */],
-                                                                { onClick: this.seeAll, primary: true, __source: {
-                                                                                fileName: _jsxFileName,
-                                                                                lineNumber: 82
-                                                                        }
-                                                                },
-                                                                'See All Lovers'
-                                                        )
-                                                )
-                                        )
-                                )
-                        );
-                }
-        }, {
-                key: '__reactstandin__regenerateByEval',
-                value: function __reactstandin__regenerateByEval(key, code) {
-                        this[key] = eval(code);
-                }
-        }], [{
-                key: 'getInitialProps',
-                value: function () {
-                        var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(props) {
-                                var loverAddress, index, info;
-                                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                                        while (1) {
-                                                switch (_context.prev = _context.next) {
-                                                        case 0:
-
-                                                                //const lover = Campaign(props.query.address);
-                                                                loverAddress = props.query.address;
-                                                                _context.next = 3;
-                                                                return __WEBPACK_IMPORTED_MODULE_4__ethereum_lover__["a" /* default */].methods.findLover(loverAddress).call();
-
-                                                        case 3:
-                                                                index = _context.sent;
-                                                                _context.next = 6;
-                                                                return __WEBPACK_IMPORTED_MODULE_4__ethereum_lover__["a" /* default */].methods.loverList(index).call();
-
-                                                        case 6:
-                                                                info = _context.sent;
+var _default = LoverIndex;
 
 
-                                                                //const summary = await campaign.methods.getSummary().call();
-                                                                console.log({ info: info });
-
-                                                                return _context.abrupt('return', {
-                                                                        yourName: info[0],
-                                                                        loversName: info[1],
-                                                                        message: info[2]
-                                                                });
-
-                                                        case 9:
-                                                        case 'end':
-                                                                return _context.stop();
-                                                }
-                                        }
-                                }, _callee, this);
-                        }));
-
-                        function getInitialProps(_x2) {
-                                return _ref2.apply(this, arguments);
-                        }
-
-                        return getInitialProps;
-                }()
-        }]);
-
-        return LoverForever;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
-
-var _default = LoverForever;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
 (function () {
-        var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
 
-        var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
 
-        if (!reactHotLoader) {
-                return;
-        }
+    if (!reactHotLoader) {
+        return;
+    }
 
-        reactHotLoader.register(url, 'url', '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js');
-        reactHotLoader.register(LoverForever, 'LoverForever', '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js');
-        reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js');
-        leaveModule(module);
+    reactHotLoader.register(LoverIndex, 'LoverIndex', '/home/tomasroaldsnes/Code/lovers-for-life/pages/index.js');
+    reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/pages/index.js');
+    leaveModule(module);
 })();
 
 ;
@@ -100289,7 +101318,7 @@ var _default = LoverForever;
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/lovers/forever")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
@@ -100329,6 +101358,14 @@ module.exports = routes;
 
 /***/ }),
 
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/index.js");
+
+
+/***/ }),
+
 /***/ 3:
 /***/ (function(module, exports) {
 
@@ -100355,18 +101392,10 @@ module.exports = routes;
 
 /* (ignored) */
 
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/lovers/forever.js");
-
-
 /***/ })
 
-},[7])
+},[2])
           return { page: comp.default }
         })
       ;
-//# sourceMappingURL=forever.js.map
+//# sourceMappingURL=index.js.map

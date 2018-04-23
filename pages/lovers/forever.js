@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Parallax } from 'react-spring';
-import { Header, Button } from 'semantic-ui-react';
+import { Header, Button, Container, Divider } from 'semantic-ui-react';
 import lover from '../../ethereum/lover';
 import web3 from '../../ethereum/web3';
 import { Router, Link } from '../../routes';
@@ -74,13 +74,16 @@ export default class LoverForever extends Component{
                 speed={0.1}
                 onClick={() => this.parallax.scrollTo(1)}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Container textAlign='center'>
                 <div>
                 <Header as='h1' inverted>It's official!</Header>
                 <Header as='h2' inverted>{this.props.yourName} + {this.props.loversName} = TRUE </Header>
-                <Header as='h3' inverted >The reason {this.props.yourName} loves {this.props.loversName}, is because:  {this.props.message}</Header>
+                <Header as='h3' inverted >{this.props.yourName} loves {this.props.loversName} because:  {this.props.message}</Header>
                 <Header as='h4' inverted >Don't go ahead and break up now...</Header>
-                <Button onClick={this.seeAll} primary>See All Lovers</Button>
+                <Divider hidden></Divider>
+                <Button onClick={this.seeAll} inverted color='purple'>See All Lovers</Button>
                 </div>
+                </Container>
                 
               </Parallax.Layer>
       

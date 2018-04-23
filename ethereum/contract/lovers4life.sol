@@ -10,7 +10,7 @@ contract LoversForLife {
     }
     
     uint AmountInWei = 9000000000000000;
-    address creator = 0x52F2ae84903081e374605852aa0A2d63efe8CC3f;
+    address creator = 0xF9B5AD3010AA48931918d41279F79FD4F4D5b124;
     Lovers[] public loverList;
     uint public amountOfLovers = 0;
     mapping(address => uint) loverNumber;

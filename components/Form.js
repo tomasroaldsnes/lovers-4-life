@@ -72,20 +72,11 @@ class FormLovers extends Component {
             transparent={true}
             label='Why do you love your partner?'
             onChange = {event => this.setState({ why: event.target.value })}
-            placeholder='Proclaim your love!' />
+            placeholder='Finish the sentence! The text will be displayed like this: *Your name* loves *partners name* because...'
+            />
         
             <Container textAlign='center'>
-            <Divider hidden />
-            <Divider hidden />
-            <Divider hidden />
-                <Form.Field control={Button} icon labelPosition='left' primary loading={this.state.isLoading}>
-                <Icon name='heart' color='red'/>Submit to blockchain</Form.Field>
-                <Divider hidden />
-                <Divider hidden />
-                <Button tiny onClick={this.seeAllLovers} >See all Lovers</Button>
-            </Container>
-      </Form>
-      <Message hidden={!this.state.isLoading}>
+            <Message hidden={!this.state.isLoading}>
                 <Message.Content>
                 <Message.Header>Just one second</Message.Header>
                 Foreverizing your love. Please accept the transaction in the MetaMask plugin.
@@ -97,6 +88,17 @@ class FormLovers extends Component {
                     Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?
                 </Message.Content>
         </Message>
+            <Divider hidden />
+            <Divider hidden />
+            <Divider hidden />
+                <Form.Field control={Button} icon color='yellow' labelPosition='left' loading={this.state.isLoading}>
+                <Icon name='heart' color='red'/>Submit to blockchain</Form.Field>
+                <Divider hidden />
+                <Divider hidden />
+                <Button tiny inverted color='gray' onClick={this.seeAllLovers} >See all Lovers</Button>
+            </Container>
+      </Form>
+      
         </Container>
         
       </div>

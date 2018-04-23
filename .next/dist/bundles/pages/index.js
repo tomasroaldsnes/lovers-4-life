@@ -254,7 +254,8 @@ var FormLovers = function (_Component) {
                             onChange: function onChange(event) {
                                 return _this3.setState({ why: event.target.value });
                             },
-                            placeholder: 'Proclaim your love!', __source: {
+                            placeholder: 'Finish the sentence! The text will be displayed like this: *Your name* loves *partners name* because...',
+                            __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 70
                             }
@@ -263,113 +264,113 @@ var FormLovers = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Container"],
                             { textAlign: 'center', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 77
-                                }
-                            },
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
                                     lineNumber: 78
                                 }
-                            }),
+                            },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"],
+                                { hidden: !this.state.isLoading, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 79
+                                    }
+                                },
+                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Content,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 80
+                                        }
+                                    },
+                                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Header,
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 81
+                                            }
+                                        },
+                                        'Just one second'
+                                    ),
+                                    'Foreverizing your love. Please accept the transaction in the MetaMask plugin.'
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"],
+                                { hidden: !this.state.error, negative: this.state.error, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 85
+                                    }
+                                },
+                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Content,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 86
+                                        }
+                                    },
+                                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Header,
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 87
+                                            }
+                                        },
+                                        'Oops!'
+                                    ),
+                                    'Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?'
+                                )
+                            ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 79
+                                    lineNumber: 91
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 80
+                                    lineNumber: 92
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 93
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Form"].Field,
-                                { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"], icon: true, labelPosition: 'left', primary: true, loading: this.state.isLoading, __source: {
+                                { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"], icon: true, color: 'yellow', labelPosition: 'left', loading: this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 81
+                                        lineNumber: 94
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Icon"], { name: 'heart', color: 'red', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 82
+                                        lineNumber: 95
                                     }
                                 }),
                                 'Submit to blockchain'
                             ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 83
+                                    lineNumber: 96
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 84
+                                    lineNumber: 97
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"],
-                                { tiny: true, onClick: this.seeAllLovers, __source: {
+                                { tiny: true, inverted: true, color: 'gray', onClick: this.seeAllLovers, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 85
+                                        lineNumber: 98
                                     }
                                 },
                                 'See all Lovers'
                             )
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"],
-                        { hidden: !this.state.isLoading, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 88
-                            }
-                        },
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Content,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 89
-                                }
-                            },
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Header,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 90
-                                    }
-                                },
-                                'Just one second'
-                            ),
-                            'Foreverizing your love. Please accept the transaction in the MetaMask plugin.'
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"],
-                        { hidden: !this.state.error, negative: this.state.error, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 94
-                            }
-                        },
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Content,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 95
-                                }
-                            },
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"].Header,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 96
-                                    }
-                                },
-                                'Oops!'
-                            ),
-                            'Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?'
                         )
                     )
                 )

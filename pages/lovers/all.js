@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Parallax } from 'react-spring';
-import { Header, Icon, Grid, Segment, Card, Image, Container } from 'semantic-ui-react';
+import { Header, Icon, Grid, Segment, Card, Image, Container, Loader } from 'semantic-ui-react';
 import lover from '../../ethereum/lover';
 import web3 from '../../ethereum/web3';
 
@@ -12,12 +12,13 @@ const url = (name, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homep
 export default class LoverAll extends Component{
     state = {
         amountOfLovers: undefined,
-        all: []
+        all: [],
+        isLoading: false
     }
     async componentWillMount() {
         
         
-
+        this.setState({ isLoading: true });
        
         //const lover = Campaign(props.query.address);
         const amountOfLovers = await lover.methods.amountOfLovers().call();
@@ -36,8 +37,7 @@ export default class LoverAll extends Component{
         
         this.setState({amountOfLovers: amountOfLovers, all: all });
         
-        //const summary = await campaign.methods.getSummary().call();
-        //console.log(loverList[0].yourName);
+        this.setState({ isLoading: false });
         
         
     }
@@ -51,10 +51,11 @@ export default class LoverAll extends Component{
             };
         });
         return <div>
-        <Container>
-        <Header as='h1'>All lovers on blockchain!</Header>
+        
+        {this.state.isLoading && <Header as='h1' inverted textAlign='center'> Loading all lovers on the blockchain!</Header>}
+        <Loader active={this.state.isLoading} inline='centered' />
             <Card.Group items={items}/>
-        </Container>
+        
         </div>;
          
            
@@ -73,10 +74,10 @@ export default class LoverAll extends Component{
            
             
        
-            <Parallax ref={ref => (this.parallax = ref)} pages={2}>
+            <Parallax ref={ref => (this.parallax = ref)} pages={3}>
               
       
-              <Parallax.Layer offset={0} speed={0} factor={3} style={{ backgroundColor: '#57C7FF', backgroundSize: 'cover' }} />
+              <Parallax.Layer offset={0} speed={0} factor={3} style={{ backgroundColor: '#390044', backgroundSize: 'cover' }} />
       
               
       
@@ -100,23 +101,15 @@ export default class LoverAll extends Component{
               <Parallax.Layer
                 offset={0}
                 speed={0.1}
-                onClick={() => this.parallax.scrollTo(1)}
+                factor={2}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                
-                {this.listRender()}
-                
+                <Container>
+                    {this.listRender()}
+                </Container>
                 
               </Parallax.Layer>
 
-              <Parallax.Layer
-              offset={1}
-              speed={0.3}
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               
-              
-              
-              
-            </Parallax.Layer>
       
               
             </Parallax>

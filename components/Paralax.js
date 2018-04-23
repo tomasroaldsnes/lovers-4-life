@@ -1,7 +1,8 @@
 import React from 'react';
 import { Parallax } from 'react-spring';
-import { Header, Icon, Grid, Segment, Card, Image, Container, Button } from 'semantic-ui-react';
+import { Header, Icon, Grid, Segment, Card, Image, Container, Button, Divider } from 'semantic-ui-react';
 import Form from './Form';
+import Join from './Join';
 
 import { Router, Link } from '../routes';
 
@@ -31,6 +32,8 @@ const CardMetamask = () => (
     </Card>
     
   );
+
+
 
 const CardForm = () => (
     
@@ -71,7 +74,7 @@ const CardForm = () => (
   const GridStuff = () => (
       <Container>
       <div>
-        <Header as='h1' textAlign='center'>How It Works</Header>
+        <Header as='h1' textAlign='center' inverted>How It Works</Header>
         <Grid columns='equal' divided inverted padded>
                 <Grid.Row color='#909090' textAlign='center'>
                 <Grid.Column>
@@ -91,7 +94,7 @@ const CardForm = () => (
   );
 
 const Header1 = () => (
-    <Header as='h2' icon>
+    <Header as='h2' icon inverted>
           <Icon name='heart' color='red' />
           Blockchain is forever. Love should be too.
           <Header.Subheader>
@@ -107,10 +110,10 @@ export default () =>{
 
     return (
       <Parallax ref={ref => (this.parallax = ref)} pages={4}>
-        <Parallax.Layer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
+        <Parallax.Layer offset={1} speed={1} style={{ backgroundColor: '#390044' }} />
         <Parallax.Layer offset={2} speed={1} style={{ backgroundColor: '#87BCDE' }} />
 
-        <Parallax.Layer offset={0} speed={0} factor={4} style={{ backgroundColor: '#57C7FF', backgroundSize: 'cover' }} />
+        <Parallax.Layer offset={0} speed={0} factor={4} style={{ backgroundColor: '#390044', backgroundSize: 'cover' }} />
 
         <Parallax.Layer offset={0.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
           <img src={url('satellite4')} style={{ width: '15%', marginLeft: '70%' }} />
@@ -184,21 +187,15 @@ export default () =>{
           speed={0.3}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
+          <div>
+          <Join/>
+          <Divider hidden />
+          <Divider hidden />
           <Form/>
+          </div>
         </Parallax.Layer>
 
-        <Parallax.Layer
-          offset={3}
-          speed={0.5}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          >
-          <Container textAlign='center'>
-            <Button onClick={event => Router.pushRoute('/lovers/all')}
-            secondary>
-              See All Lovers
-            </Button>
-            </Container>
-        </Parallax.Layer>
+        
 
       </Parallax>
     )

@@ -48,7 +48,7 @@ export default class LoverForever extends Component{
             <Parallax ref={ref => (this.parallax = ref)} pages={1}>
               
       
-              <Parallax.Layer offset={0} speed={0} factor={3} style={{ backgroundColor: '#57C7FF', backgroundSize: 'cover' }} />
+              <Parallax.Layer offset={0} speed={0} factor={3} style={{ backgroundColor: '#390044', backgroundSize: 'cover' }} />
       
               
       
@@ -75,11 +75,11 @@ export default class LoverForever extends Component{
                 onClick={() => this.parallax.scrollTo(1)}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div>
-                <Header as='h1'>It's official!</Header>
-                <Header as='h2'>{this.props.yourName} + {this.props.loversName} = TRUE (FOREVER) </Header>
-                <Header as='h3'>{this.props.message}</Header>
-                <Header as='h4'>Don't go ahead and break up now...</Header>
-                <Button onClick={this.seeAll}>See All Lovers</Button>
+                <Header as='h1' inverted>It's official!</Header>
+                <Header as='h2' inverted>{this.props.yourName} + {this.props.loversName} = TRUE </Header>
+                <Header as='h3' inverted >The reason {this.props.yourName} loves {this.props.loversName}, is because:  {this.props.message}</Header>
+                <Header as='h4' inverted >Don't go ahead and break up now...</Header>
+                <Button onClick={this.seeAll} primary>See All Lovers</Button>
                 </div>
                 
               </Parallax.Layer>

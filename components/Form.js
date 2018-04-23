@@ -51,12 +51,11 @@ class FormLovers extends Component {
     return (
         <div>
         <Container>
-        <Header as='h1' textAlign='center'>Love Is Forever!</Header>
-      <Form onSubmit={this.onSubmit}>
+      <Form onSubmit={this.onSubmit} inverted>
         <Form.Group widths='equal'>
           <Form.Field control={Input}
             value={this.state.yourName}
-            label='Your name' 
+            label='Your name'  
             onChange = {event => this.setState({ yourName: event.target.value })}
             placeholder='Your name' />
 
@@ -76,8 +75,14 @@ class FormLovers extends Component {
             placeholder='Proclaim your love!' />
         
             <Container textAlign='center'>
-                <Form.Field control={Button} icon labelPosition='left' primary>
-                <Icon name='heart' color='red' loading={this.state.isLoading}/>Submit</Form.Field>
+            <Divider hidden />
+            <Divider hidden />
+            <Divider hidden />
+                <Form.Field control={Button} icon labelPosition='left' primary loading={this.state.isLoading}>
+                <Icon name='heart' color='red'/>Submit to blockchain</Form.Field>
+                <Divider hidden />
+                <Divider hidden />
+                <Button tiny onClick={this.seeAllLovers} >See all Lovers</Button>
             </Container>
       </Form>
       <Message hidden={!this.state.isLoading}>

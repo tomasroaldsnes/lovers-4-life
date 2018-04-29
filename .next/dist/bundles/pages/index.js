@@ -86,6 +86,10 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__ = __webpack_require__("react-semantic-ui-range");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__);
 
 var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js';
 
@@ -102,6 +106,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
+// Using an ES6 transpiler like Babel
 
 
 
@@ -125,12 +132,17 @@ var FormLovers = function (_Component) {
             partnersName: '',
             why: '',
             isLoading: false,
-            payment: 9000000000000000,
+            allClicked: false,
             error: false,
-            errorMessage: ''
+            errorMessage: '',
+            sliderValue: 0.0550
+        }, _this.handleSliderChange = function (value) {
+            _this.setState({
+                sliderVolume: value
+            });
         }, _this.onSubmit = function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(event) {
-                var accounts, newCampaign;
+                var payment, accounts, newCampaign;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
@@ -140,29 +152,32 @@ var FormLovers = function (_Component) {
 
                                 _this.setState({ error: false });
                                 _this.setState({ isLoading: true });
-                                _context.next = 6;
+                                payment = __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].utils.toWei(_this.state.sliderValue.toString(), 'ether');
+
+                                console.log(payment);
+                                _context.next = 8;
                                 return __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].eth.getAccounts();
 
-                            case 6:
+                            case 8:
                                 accounts = _context.sent;
-                                _context.next = 9;
+                                _context.next = 11;
                                 return __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__["a" /* default */].methods.createLover(_this.state.yourName, _this.state.partnersName, _this.state.why).send({
                                     from: accounts[0],
-                                    value: _this.state.payment
+                                    value: payment
                                 });
 
-                            case 9:
+                            case 11:
                                 newCampaign = _context.sent;
 
                                 __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/' + accounts[0]);
 
                                 //this.setState({isLoading: false});
 
-                                _context.next = 16;
+                                _context.next = 18;
                                 break;
 
-                            case 13:
-                                _context.prev = 13;
+                            case 15:
+                                _context.prev = 15;
                                 _context.t0 = _context['catch'](1);
 
                                 _this.setState({
@@ -171,21 +186,24 @@ var FormLovers = function (_Component) {
                                     errorMessage: _context.t0.message
                                 });
 
-                            case 16:
+                            case 18:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, _this2, [[1, 13]]);
+                }, _callee, _this2, [[1, 15]]);
             }));
 
             return function (_x) {
                 return _ref2.apply(this, arguments);
             };
         }(), _this.seeAllLovers = function () {
+            _this.setState({ allClicked: true });
             __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/all');
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
+    //web3.utils.toWei(this.state.sliderValue, 'ether')
+
 
     _createClass(FormLovers, [{
         key: 'render',
@@ -199,7 +217,7 @@ var FormLovers = function (_Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 52
+                        lineNumber: 68
                     }
                 },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -207,21 +225,21 @@ var FormLovers = function (_Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 53
+                            lineNumber: 69
                         }
                     },
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Form"],
                         { onSubmit: this.onSubmit, inverted: true, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 54
+                                lineNumber: 70
                             }
                         },
                         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Form"].Group,
                             { widths: 'equal', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 55
+                                    lineNumber: 71
                                 }
                             },
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Form"].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Input"],
@@ -232,7 +250,7 @@ var FormLovers = function (_Component) {
                                 },
                                 placeholder: 'Your name', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 56
+                                    lineNumber: 72
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Form"].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Input"],
@@ -243,7 +261,7 @@ var FormLovers = function (_Component) {
                                 },
                                 placeholder: 'Partners name', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 62
+                                    lineNumber: 78
                                 }
                             })
                         ),
@@ -254,24 +272,69 @@ var FormLovers = function (_Component) {
                             onChange: function onChange(event) {
                                 return _this3.setState({ why: event.target.value });
                             },
-                            placeholder: 'Finish the sentence! The text will be displayed like this: *Your name* loves *partners name* because...',
+                            placeholder: 'The text will be displayed like this: *Your name* + *Partners name* and your message displayed below.',
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 70
+                                lineNumber: 86
                             }
                         }),
                         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Container"],
                             { textAlign: 'center', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 78
+                                    lineNumber: 94
                                 }
                             },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 95
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 96
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Header"],
+                                { as: 'h3', inverted: true, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 97
+                                    }
+                                },
+                                'Decide how much your love is worth:'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__["Slider"], { color: 'yellow', inverted: true,
+                                settings: {
+                                    start: 0.0550,
+                                    min: 0.0009,
+                                    max: 0.11,
+                                    step: 0.0001,
+                                    onChange: function onChange(value) {
+                                        _this3.setState({
+                                            sliderValue: value
+                                        });
+                                    }
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 98
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Header"],
+                                { as: 'h2', inverted: true, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 110
+                                    }
+                                },
+                                this.state.sliderValue.toFixed(4),
+                                ' ETH'
+                            ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"],
                                 { hidden: !this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 79
+                                        lineNumber: 111
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -279,7 +342,7 @@ var FormLovers = function (_Component) {
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 80
+                                            lineNumber: 112
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -287,7 +350,7 @@ var FormLovers = function (_Component) {
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 81
+                                                lineNumber: 113
                                             }
                                         },
                                         'Just one second'
@@ -299,7 +362,7 @@ var FormLovers = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Message"],
                                 { hidden: !this.state.error, negative: this.state.error, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 85
+                                        lineNumber: 117
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -307,7 +370,7 @@ var FormLovers = function (_Component) {
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 86
+                                            lineNumber: 118
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -315,7 +378,7 @@ var FormLovers = function (_Component) {
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 87
+                                                lineNumber: 119
                                             }
                                         },
                                         'Oops!'
@@ -325,29 +388,29 @@ var FormLovers = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 91
+                                    lineNumber: 123
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 92
+                                    lineNumber: 124
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 93
+                                    lineNumber: 125
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Form"].Field,
                                 { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"], icon: true, color: 'yellow', labelPosition: 'left', loading: this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 94
+                                        lineNumber: 126
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Icon"], { name: 'heart', color: 'red', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 95
+                                        lineNumber: 127
                                     }
                                 }),
                                 'Submit to blockchain'
@@ -359,38 +422,38 @@ var FormLovers = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Container"],
                     { textAlign: 'center', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 102
+                            lineNumber: 134
                         }
                     },
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 103
+                            lineNumber: 135
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 104
+                            lineNumber: 136
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Button"],
-                        { tiny: true, inverted: true, color: 'gray', onClick: this.seeAllLovers, __source: {
+                        { tiny: true, inverted: true, color: 'gray', loading: this.state.allClicked, onClick: this.seeAllLovers, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 105
+                                lineNumber: 137
                             }
                         },
                         'See all Lovers'
                     ),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 106
+                            lineNumber: 138
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         'a',
                         { href: 'https://github.com/tomasroaldsnes/lovers-4-life', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 107
+                                lineNumber: 139
                             }
                         },
                         'GitHub'
@@ -574,12 +637,57 @@ var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Layout.
                     fileName: _jsxFileName,
                     lineNumber: 11
                 }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'icon', href: 'https://freeiconshop.com/wp-content/uploads/edd/heart-flat.png', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 12
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { charset: 'utf-8', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 14
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'title',
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 16
+                    }
+                },
+                'Proclaim your love on the blockchain'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,minimal-ui', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 18
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'mobile-web-app-capable', content: 'yes', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 20
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'apple-mobile-web-app-capable', content: 'yes', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 22
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'format-detection', content: 'telephone=no', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 24
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'theme-color', content: '#673AB8', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 26
+                }
             })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Paralax__["a" /* default */], {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 13
+                lineNumber: 33
             }
         })
     );
@@ -800,7 +908,7 @@ var CardPay = function CardPay() {
         lineNumber: 58
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Image"], { src: 'https://www.shareicon.net/download/2015/10/03/111192_money_512x512.png', __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Image"], { src: 'http://icons-for-free.com/icon/download-bag_bank_coins_finance_money_saving_icon-3589.png', __source: {
         fileName: _jsxFileName,
         lineNumber: 59
       }
@@ -821,7 +929,7 @@ var CardPay = function CardPay() {
             lineNumber: 61
           }
         },
-        'Accept the Transaction'
+        'Accept Transaction'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Card"].Description,
@@ -831,7 +939,7 @@ var CardPay = function CardPay() {
             lineNumber: 65
           }
         },
-        'It costs 0.009 ETH to proclaim your love forever.'
+        'You can choose how much you want to pay to proclaim your love.  '
       )
     )
   );
@@ -843,7 +951,7 @@ var GridStuff = function GridStuff() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 74
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -851,14 +959,14 @@ var GridStuff = function GridStuff() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 75
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Header"],
         { as: 'h1', textAlign: 'center', inverted: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 76
           }
         },
         'How It Works'
@@ -867,14 +975,14 @@ var GridStuff = function GridStuff() {
         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Grid"],
         { columns: 'equal', divided: true, inverted: true, padded: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 77
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Grid"].Row,
           { color: '#909090', textAlign: 'center', __source: {
               fileName: _jsxFileName,
-              lineNumber: 79
+              lineNumber: 78
             }
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -882,7 +990,7 @@ var GridStuff = function GridStuff() {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 79
               }
             },
             CardMetamask()
@@ -892,7 +1000,7 @@ var GridStuff = function GridStuff() {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 82
               }
             },
             CardForm()
@@ -902,7 +1010,7 @@ var GridStuff = function GridStuff() {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 86
+                lineNumber: 85
               }
             },
             CardPay()
@@ -918,12 +1026,12 @@ var Header1 = function Header1() {
     __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Header"],
     { as: 'h2', icon: true, inverted: true, __source: {
         fileName: _jsxFileName,
-        lineNumber: 97
+        lineNumber: 96
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Icon"], { name: 'heart', color: 'red', __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Icon"], { name: 'heart', color: 'yellow', __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 97
       }
     }),
     'Blockchain is forever. Love should be too.',
@@ -932,7 +1040,7 @@ var Header1 = function Header1() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 99
         }
       },
       'Proclaim your love for your partner on the Ethereum Blockchain.'
@@ -948,34 +1056,34 @@ var Header1 = function Header1() {
         return _this.parallax = _ref7;
       }, pages: 4, __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 111
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer, { offset: 1, speed: 1, style: { backgroundColor: '#390044' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 112
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer, { offset: 2, speed: 1, style: { backgroundColor: '#87BCDE' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 113
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer, { offset: 0, speed: 0, factor: 4, style: { backgroundColor: '#390044', backgroundSize: 'cover' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 116
+        lineNumber: 115
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 0.3, speed: -0.3, style: { pointerEvents: 'none' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 117
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('satellite4'), style: { width: '15%', marginLeft: '70%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 118
         }
       })
     ),
@@ -983,17 +1091,17 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 0, speed: 0.8, style: { opacity: 0.1 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 121
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '55%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 122
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '15%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 123
         }
       })
     ),
@@ -1001,17 +1109,17 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 0.75, speed: 0.5, style: { opacity: 0.1 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 126
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '70%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 127
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '40%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 128
         }
       })
     ),
@@ -1019,17 +1127,17 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 0, speed: 0.2, style: { opacity: 0.2 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 131
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '10%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 132
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '75%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 133
         }
       })
     ),
@@ -1037,22 +1145,22 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 0.6, speed: -0.1, style: { opacity: 0.4 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 136
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 137
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 138
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 139
         }
       })
     ),
@@ -1060,17 +1168,17 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 1.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 142
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 143
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 144
         }
       })
     ),
@@ -1078,17 +1186,17 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 2, speed: -0.1, style: { opacity: 0.4 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 147
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 148
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 149
         }
       })
     ),
@@ -1096,17 +1204,17 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 2.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 152
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 153
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 154
         }
       })
     ),
@@ -1114,22 +1222,22 @@ var Header1 = function Header1() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["Parallax"].Layer,
       { offset: 3, speed: -0.1, style: { opacity: 0.4 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 158
+          lineNumber: 157
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 159
+          lineNumber: 158
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 160
+          lineNumber: 159
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 160
         }
       })
     ),
@@ -1143,7 +1251,7 @@ var Header1 = function Header1() {
         },
         style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 167
         }
       },
       Header1()
@@ -1158,7 +1266,7 @@ var Header1 = function Header1() {
         },
         style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 175
         }
       },
       GridStuff()
@@ -1171,7 +1279,7 @@ var Header1 = function Header1() {
         style: { display: 'flex', alignItems: 'center', justifyContent: 'center' },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 185
+          lineNumber: 184
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1179,11 +1287,16 @@ var Header1 = function Header1() {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 189
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Join__["a" /* default */], {
           __source: {
+            fileName: _jsxFileName,
+            lineNumber: 190
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
             fileName: _jsxFileName,
             lineNumber: 191
           }
@@ -1193,15 +1306,10 @@ var Header1 = function Header1() {
             lineNumber: 192
           }
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["Divider"], { hidden: true, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 193
-          }
-        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Form__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 194
+            lineNumber: 193
           }
         })
       )
@@ -1220,7 +1328,7 @@ var Header1 = function Header1() {
 
 var address = '0xE5bb212f0141e1B9664B449F45588B942E0927Be';
 
-var abi = [{ "constant": true, "inputs": [], "name": "amountOfLovers", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "l1", "type": "string" }, { "name": "l2", "type": "string" }, { "name": "message", "type": "string" }], "name": "createLover", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "loverList", "outputs": [{ "name": "lover1", "type": "string" }, { "name": "lover2", "type": "string" }, { "name": "whyDoYouLove", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "user", "type": "address" }], "name": "findLover", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }];
+var abi = [{ "constant": true, "inputs": [], "name": "amountOfLovers", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "l1", "type": "string" }, { "name": "l2", "type": "string" }, { "name": "message", "type": "string" }], "name": "createLover", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [{ "name": "price", "type": "uint256" }], "name": "setPrice", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "loverList", "outputs": [{ "name": "lover1", "type": "string" }, { "name": "lover2", "type": "string" }, { "name": "whyDoYouLove", "type": "string" }, { "name": "worth", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "user", "type": "address" }], "name": "findLover", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
 
 var instance = new __WEBPACK_IMPORTED_MODULE_0__web3__["a" /* default */].eth.Contract(abi, address);
 
@@ -1348,10 +1456,24 @@ module.exports = require("next/head");
 
 /***/ }),
 
+/***/ "prop-types":
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
+
+/***/ }),
+
 /***/ "react":
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-semantic-ui-range":
+/***/ (function(module, exports) {
+
+module.exports = require("react-semantic-ui-range");
 
 /***/ }),
 

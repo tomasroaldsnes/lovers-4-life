@@ -3,6 +3,12 @@ import { Button, Form, Input, Select, TextArea, Message, Divider , Icon, Header,
 import lover from '../ethereum/lover';
 import web3 from '../ethereum/web3';
 import { Router, Link } from '../routes';
+// Using an ES6 transpiler like Babel
+import PropTypes from 'prop-types';
+import { Slider } from 'react-semantic-ui-range'
+
+
+
 
 
 class FormLovers extends Component {
@@ -11,22 +17,31 @@ class FormLovers extends Component {
       partnersName: '',
       why: '',
       isLoading: false,
-      payment: 9000000000000000,
+      allClicked: false,
       error: false,
-      errorMessage: ''
+      errorMessage: '',
+      sliderValue: 0.0550
   }
 
+  handleSliderChange = (value) => {
+    this.setState({
+      sliderVolume: value
+    })
+  }
+  //web3.utils.toWei(this.state.sliderValue, 'ether')
   onSubmit = async (event) => {
         event.preventDefault();
         try{
         this.setState({error: false});
         this.setState({isLoading: true});
+        const payment = web3.utils.toWei(this.state.sliderValue.toString(), 'ether');
+        console.log(payment);
         const accounts = await web3.eth.getAccounts();
         const newCampaign = await lover.methods
             .createLover(this.state.yourName, this.state.partnersName, this.state.why)
             .send({
                 from: accounts[0],
-                value: this.state.payment
+                value: payment
             });
         Router.pushRoute(`/lovers/${accounts[0]}`);
         
@@ -43,6 +58,7 @@ class FormLovers extends Component {
   }
 
   seeAllLovers = () => {
+      this.setState({allClicked: true});
       Router.pushRoute('/lovers/all');
   }
 
@@ -72,10 +88,26 @@ class FormLovers extends Component {
             transparent={true}
             label='Why do you love your partner?'
             onChange = {event => this.setState({ why: event.target.value })}
-            placeholder='Finish the sentence! The text will be displayed like this: *Your name* loves *partners name* because...'
+            placeholder='The text will be displayed like this: *Your name* + *Partners name* and your message displayed below.'
             />
         
             <Container textAlign='center'>
+            <Divider hidden/>
+            <Divider hidden/>
+            <Header as='h3' inverted>Decide how much your love is worth:</Header>
+            <Slider color="yellow" inverted={true}
+                settings={{
+                start: 0.0550,
+                min:0.0009,
+                max:0.11,
+                step:0.0001,
+                onChange: (value) => {
+                  this.setState({
+                    sliderValue:value
+                  })
+                }
+              }}/>
+            <Header as='h2' inverted>{this.state.sliderValue.toFixed(4)} ETH</Header>
             <Message hidden={!this.state.isLoading}>
                 <Message.Content>
                 <Message.Header>Just one second</Message.Header>
@@ -102,7 +134,7 @@ class FormLovers extends Component {
         <Container textAlign='center'>
             <Divider hidden />
             <Divider hidden />
-            <Button tiny inverted color='gray' onClick={this.seeAllLovers} >See all Lovers</Button>
+            <Button tiny inverted color='gray' loading={this.state.allClicked} onClick={this.seeAllLovers} >See all Lovers</Button>
             <Divider hidden />
             <a href="https://github.com/tomasroaldsnes/lovers-4-life">GitHub</a>
 

@@ -56,15 +56,14 @@ const CardForm = () => (
   const CardPay = () => (
     
     <Card>
-      <Image src='https://www.shareicon.net/download/2015/10/03/111192_money_512x512.png' />
+      <Image src='http://icons-for-free.com/icon/download-bag_bank_coins_finance_money_saving_icon-3589.png' />
       <Card.Content>
         <Card.Header>
-          Accept the Transaction
+          Accept Transaction
         </Card.Header>
         
         <Card.Description>
-          It costs 0.009 ETH to proclaim your love forever.
-        </Card.Description>
+          You can choose how much you want to pay to proclaim your love.  </Card.Description>
       </Card.Content>
       
     </Card>
@@ -95,7 +94,7 @@ const CardForm = () => (
 
 const Header1 = () => (
     <Header as='h2' icon inverted>
-          <Icon name='heart' color='red' />
+          <Icon name='heart' color='yellow' />
           Blockchain is forever. Love should be too.
           <Header.Subheader>
             Proclaim your love for your partner on the Ethereum Blockchain.

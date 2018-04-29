@@ -17,6 +17,10 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__ = __webpack_require__("./node_modules/react-semantic-ui-range/build/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__);
 
 var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js';
 
@@ -41,6 +45,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+// Using an ES6 transpiler like Babel
+
+
 
 var FormLovers = function (_Component) {
     _inherits(FormLovers, _Component);
@@ -62,12 +69,17 @@ var FormLovers = function (_Component) {
             partnersName: '',
             why: '',
             isLoading: false,
-            payment: 9000000000000000,
+            allClicked: false,
             error: false,
-            errorMessage: ''
+            errorMessage: '',
+            sliderValue: 0.0550
+        }, _this.handleSliderChange = function (value) {
+            _this.setState({
+                sliderVolume: value
+            });
         }, _this.onSubmit = function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(event) {
-                var accounts, newCampaign;
+                var payment, accounts, newCampaign;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
@@ -77,29 +89,32 @@ var FormLovers = function (_Component) {
 
                                 _this.setState({ error: false });
                                 _this.setState({ isLoading: true });
-                                _context.next = 6;
+                                payment = __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].utils.toWei(_this.state.sliderValue.toString(), 'ether');
+
+                                console.log(payment);
+                                _context.next = 8;
                                 return __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].eth.getAccounts();
 
-                            case 6:
+                            case 8:
                                 accounts = _context.sent;
-                                _context.next = 9;
+                                _context.next = 11;
                                 return __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__["a" /* default */].methods.createLover(_this.state.yourName, _this.state.partnersName, _this.state.why).send({
                                     from: accounts[0],
-                                    value: _this.state.payment
+                                    value: payment
                                 });
 
-                            case 9:
+                            case 11:
                                 newCampaign = _context.sent;
 
                                 __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/' + accounts[0]);
 
                                 //this.setState({isLoading: false});
 
-                                _context.next = 16;
+                                _context.next = 18;
                                 break;
 
-                            case 13:
-                                _context.prev = 13;
+                            case 15:
+                                _context.prev = 15;
                                 _context.t0 = _context['catch'](1);
 
                                 _this.setState({
@@ -108,21 +123,24 @@ var FormLovers = function (_Component) {
                                     errorMessage: _context.t0.message
                                 });
 
-                            case 16:
+                            case 18:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, _this2, [[1, 13]]);
+                }, _callee, _this2, [[1, 15]]);
             }));
 
             return function (_x) {
                 return _ref2.apply(this, arguments);
             };
         }(), _this.seeAllLovers = function () {
+            _this.setState({ allClicked: true });
             __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/all');
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
+    //web3.utils.toWei(this.state.sliderValue, 'ether')
+
 
     _createClass(FormLovers, [{
         key: 'render',
@@ -136,7 +154,7 @@ var FormLovers = function (_Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 52
+                        lineNumber: 68
                     }
                 },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -144,21 +162,21 @@ var FormLovers = function (_Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 53
+                            lineNumber: 69
                         }
                     },
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */],
                         { onSubmit: this.onSubmit, inverted: true, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 54
+                                lineNumber: 70
                             }
                         },
                         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Group,
                             { widths: 'equal', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 55
+                                    lineNumber: 71
                                 }
                             },
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["j" /* Input */],
@@ -169,7 +187,7 @@ var FormLovers = function (_Component) {
                                 },
                                 placeholder: 'Your name', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 56
+                                    lineNumber: 72
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["j" /* Input */],
@@ -180,51 +198,96 @@ var FormLovers = function (_Component) {
                                 },
                                 placeholder: 'Partners name', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 62
+                                    lineNumber: 78
                                 }
                             })
                         ),
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* TextArea */],
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["m" /* TextArea */],
                             value: this.state.why,
                             transparent: true,
                             label: 'Why do you love your partner?',
                             onChange: function onChange(event) {
                                 return _this3.setState({ why: event.target.value });
                             },
-                            placeholder: 'Finish the sentence! The text will be displayed like this: *Your name* loves *partners name* because...',
+                            placeholder: 'The text will be displayed like this: *Your name* + *Partners name* and your message displayed below.',
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 70
+                                lineNumber: 86
                             }
                         }),
                         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
                             { textAlign: 'center', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 78
+                                    lineNumber: 94
                                 }
                             },
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 95
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 96
+                                }
+                            }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */],
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
+                                { as: 'h3', inverted: true, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 97
+                                    }
+                                },
+                                'Decide how much your love is worth:'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__["Slider"], { color: 'yellow', inverted: true,
+                                settings: {
+                                    start: 0.0550,
+                                    min: 0.0009,
+                                    max: 0.11,
+                                    step: 0.0001,
+                                    onChange: function onChange(value) {
+                                        _this3.setState({
+                                            sliderValue: value
+                                        });
+                                    }
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 98
+                                }
+                            }),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
+                                { as: 'h2', inverted: true, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 110
+                                    }
+                                },
+                                this.state.sliderValue.toFixed(4),
+                                ' ETH'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
                                 { hidden: !this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 79
+                                        lineNumber: 111
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Content,
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 80
+                                            lineNumber: 112
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Header,
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 81
+                                                lineNumber: 113
                                             }
                                         },
                                         'Just one second'
@@ -233,26 +296,26 @@ var FormLovers = function (_Component) {
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */],
+                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
                                 { hidden: !this.state.error, negative: this.state.error, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 85
+                                        lineNumber: 117
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Content,
+                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 86
+                                            lineNumber: 118
                                         }
                                     },
                                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["k" /* Message */].Header,
+                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 87
+                                                lineNumber: 119
                                             }
                                         },
                                         'Oops!'
@@ -262,29 +325,29 @@ var FormLovers = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 91
+                                    lineNumber: 123
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 92
+                                    lineNumber: 124
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 93
+                                    lineNumber: 125
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field,
                                 { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["a" /* Button */], icon: true, color: 'yellow', labelPosition: 'left', loading: this.state.isLoading, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 94
+                                        lineNumber: 126
                                     }
                                 },
                                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'red', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 95
+                                        lineNumber: 127
                                     }
                                 }),
                                 'Submit to blockchain'
@@ -296,38 +359,38 @@ var FormLovers = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
                     { textAlign: 'center', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 102
+                            lineNumber: 134
                         }
                     },
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 103
+                            lineNumber: 135
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 104
+                            lineNumber: 136
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["a" /* Button */],
-                        { tiny: true, inverted: true, color: 'gray', onClick: this.seeAllLovers, __source: {
+                        { tiny: true, inverted: true, color: 'gray', loading: this.state.allClicked, onClick: this.seeAllLovers, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 105
+                                lineNumber: 137
                             }
                         },
                         'See all Lovers'
                     ),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 106
+                            lineNumber: 138
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         'a',
                         { href: 'https://github.com/tomasroaldsnes/lovers-4-life', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 107
+                                lineNumber: 139
                             }
                         },
                         'GitHub'
@@ -574,12 +637,57 @@ var _default = function _default(props) {
                     fileName: _jsxFileName,
                     lineNumber: 11
                 }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'icon', href: 'https://freeiconshop.com/wp-content/uploads/edd/heart-flat.png', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 12
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { charset: 'utf-8', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 14
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'title',
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 16
+                    }
+                },
+                'Proclaim your love on the blockchain'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,minimal-ui', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 18
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'mobile-web-app-capable', content: 'yes', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 20
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'apple-mobile-web-app-capable', content: 'yes', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 22
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'format-detection', content: 'telephone=no', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 24
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'theme-color', content: '#673AB8', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 26
+                }
             })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Paralax__["a" /* default */], {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 13
+                lineNumber: 33
             }
         })
     );
@@ -823,7 +931,7 @@ var CardPay = function CardPay() {
         lineNumber: 58
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'https://www.shareicon.net/download/2015/10/03/111192_money_512x512.png', __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'http://icons-for-free.com/icon/download-bag_bank_coins_finance_money_saving_icon-3589.png', __source: {
         fileName: _jsxFileName,
         lineNumber: 59
       }
@@ -844,7 +952,7 @@ var CardPay = function CardPay() {
             lineNumber: 61
           }
         },
-        'Accept the Transaction'
+        'Accept Transaction'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
@@ -854,7 +962,7 @@ var CardPay = function CardPay() {
             lineNumber: 65
           }
         },
-        'It costs 0.009 ETH to proclaim your love forever.'
+        'You can choose how much you want to pay to proclaim your love.  '
       )
     )
   );
@@ -866,7 +974,7 @@ var GridStuff = function GridStuff() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 74
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -874,14 +982,14 @@ var GridStuff = function GridStuff() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 75
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
         { as: 'h1', textAlign: 'center', inverted: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 76
           }
         },
         'How It Works'
@@ -890,14 +998,14 @@ var GridStuff = function GridStuff() {
         __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */],
         { columns: 'equal', divided: true, inverted: true, padded: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 77
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Row,
           { color: '#909090', textAlign: 'center', __source: {
               fileName: _jsxFileName,
-              lineNumber: 79
+              lineNumber: 78
             }
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -905,7 +1013,7 @@ var GridStuff = function GridStuff() {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 79
               }
             },
             CardMetamask()
@@ -915,7 +1023,7 @@ var GridStuff = function GridStuff() {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 82
               }
             },
             CardForm()
@@ -925,7 +1033,7 @@ var GridStuff = function GridStuff() {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 86
+                lineNumber: 85
               }
             },
             CardPay()
@@ -941,12 +1049,12 @@ var Header1 = function Header1() {
     __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
     { as: 'h2', icon: true, inverted: true, __source: {
         fileName: _jsxFileName,
-        lineNumber: 97
+        lineNumber: 96
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'red', __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'yellow', __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 97
       }
     }),
     'Blockchain is forever. Love should be too.',
@@ -955,7 +1063,7 @@ var Header1 = function Header1() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 99
         }
       },
       'Proclaim your love for your partner on the Ethereum Blockchain.'
@@ -971,34 +1079,34 @@ var _default = function _default() {
         return _this.parallax = _ref7;
       }, pages: 4, __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 111
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 1, speed: 1, style: { backgroundColor: '#390044' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 112
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 2, speed: 1, style: { backgroundColor: '#87BCDE' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 113
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 0, speed: 0, factor: 4, style: { backgroundColor: '#390044', backgroundSize: 'cover' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 116
+        lineNumber: 115
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 0.3, speed: -0.3, style: { pointerEvents: 'none' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 117
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('satellite4'), style: { width: '15%', marginLeft: '70%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 118
         }
       })
     ),
@@ -1006,17 +1114,17 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 0, speed: 0.8, style: { opacity: 0.1 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 121
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '55%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 122
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '15%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 123
         }
       })
     ),
@@ -1024,17 +1132,17 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 0.75, speed: 0.5, style: { opacity: 0.1 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 126
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '70%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 127
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '40%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 128
         }
       })
     ),
@@ -1042,17 +1150,17 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 0, speed: 0.2, style: { opacity: 0.2 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 131
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '10%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 132
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '75%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 133
         }
       })
     ),
@@ -1060,22 +1168,22 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 0.6, speed: -0.1, style: { opacity: 0.4 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 136
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 137
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 138
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 139
         }
       })
     ),
@@ -1083,17 +1191,17 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 1.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 142
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 143
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 144
         }
       })
     ),
@@ -1101,17 +1209,17 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 2, speed: -0.1, style: { opacity: 0.4 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 147
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 148
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 149
         }
       })
     ),
@@ -1119,17 +1227,17 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 2.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 152
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 153
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 154
         }
       })
     ),
@@ -1137,22 +1245,22 @@ var _default = function _default() {
       __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
       { offset: 3, speed: -0.1, style: { opacity: 0.4 }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 158
+          lineNumber: 157
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 159
+          lineNumber: 158
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 160
+          lineNumber: 159
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 160
         }
       })
     ),
@@ -1166,7 +1274,7 @@ var _default = function _default() {
         },
         style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 167
         }
       },
       Header1()
@@ -1181,7 +1289,7 @@ var _default = function _default() {
         },
         style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 175
         }
       },
       GridStuff()
@@ -1194,7 +1302,7 @@ var _default = function _default() {
         style: { display: 'flex', alignItems: 'center', justifyContent: 'center' },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 185
+          lineNumber: 184
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1202,11 +1310,16 @@ var _default = function _default() {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 189
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Join__["a" /* default */], {
           __source: {
+            fileName: _jsxFileName,
+            lineNumber: 190
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
             fileName: _jsxFileName,
             lineNumber: 191
           }
@@ -1216,15 +1329,10 @@ var _default = function _default() {
             lineNumber: 192
           }
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 193
-          }
-        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Form__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 194
+            lineNumber: 193
           }
         })
       )
@@ -1280,7 +1388,7 @@ var _default = function _default() {
 
 var address = '0xE5bb212f0141e1B9664B449F45588B942E0927Be';
 
-var abi = [{ "constant": true, "inputs": [], "name": "amountOfLovers", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "l1", "type": "string" }, { "name": "l2", "type": "string" }, { "name": "message", "type": "string" }], "name": "createLover", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "loverList", "outputs": [{ "name": "lover1", "type": "string" }, { "name": "lover2", "type": "string" }, { "name": "whyDoYouLove", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "user", "type": "address" }], "name": "findLover", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }];
+var abi = [{ "constant": true, "inputs": [], "name": "amountOfLovers", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "l1", "type": "string" }, { "name": "l2", "type": "string" }, { "name": "message", "type": "string" }], "name": "createLover", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [{ "name": "price", "type": "uint256" }], "name": "setPrice", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "loverList", "outputs": [{ "name": "lover1", "type": "string" }, { "name": "lover2", "type": "string" }, { "name": "whyDoYouLove", "type": "string" }, { "name": "worth", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "user", "type": "address" }], "name": "findLover", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
 
 var instance = new __WEBPACK_IMPORTED_MODULE_0__web3__["a" /* default */].eth.Contract(abi, address);
 
@@ -45831,6 +45939,442 @@ module.exports = randomHex;
 
 /***/ }),
 
+/***/ "./node_modules/react-semantic-ui-range/build/elements/range.css.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+
+var _thumb;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = {
+   range: {
+      cursor: "pointer",
+      width: "100%",
+      height: "20px"
+   },
+   inner: {
+      margin: "0 10px 0 10px",
+      height: "20px",
+      position: "relative"
+   },
+   /*
+   .ui.range .inner:hover {
+    cursor: pointer;
+   }*/
+   track: {
+      position: "absolute",
+      width: "100%",
+      height: "4px",
+      borderRadius: "4px",
+      top: "9px",
+      left: "0",
+      backgroundColor: "rgba(0,0,0,.05)"
+   },
+   "invertedTrack": {
+      backgroundColor: "rgba(255,255,255,.08)"
+   },
+   trackFill: {
+      position: "absolute",
+      width: "0",
+      height: "4px",
+      borderRadius: "4px",
+      top: "9px",
+      left: "0",
+      backgroundColor: "#1b1c1d"
+   },
+   "invertedTrackFill": {
+      backgroundColor: "#545454"
+   },
+   thumb: (_thumb = {
+      position: "absolute",
+      top: "0",
+      left: "0",
+      height: "20px",
+      width: "20px",
+      background: "#fff linear-gradient(transparent, rgba(0, 0, 0, 0.5))"
+   }, _defineProperty(_thumb, "background", "#fff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.5))"), _defineProperty(_thumb, "background", "#fff -o-linear-gradient(transparent, rgba(0, 0, 0, 0.5))"), _defineProperty(_thumb, "background", "#fff -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.5))"), _defineProperty(_thumb, "borderRadius", "100%"), _defineProperty(_thumb, "backgroundColor", "rgba(255, 255, 255, 1)"), _defineProperty(_thumb, "boxShadow", "0 1px 2px 0 rgba(34,36,38,.15),0 0 0 1px rgba(34,36,38,.15) inset"), _thumb),
+   red: {
+      backgroundColor: "#DB2828"
+   },
+   "inverted-red": {
+      backgroundColor: "#FF695E"
+   },
+   /* Orange */
+   orange: {
+      backgroundColor: "#F2711C"
+   },
+   "inverted-orange": {
+      backgroundColor: "#FF851B"
+   },
+   /* Yellow */
+   yellow: {
+      backgroundColor: "#FBBD08"
+   },
+   "inverted-yellow": {
+      backgroundColor: "#FFE21F"
+   },
+   /* Olive */
+   olive: {
+      backgroundColor: "#B5CC18"
+   },
+   "inverted-olive": {
+      backgroundColor: "#D9E778"
+   },
+   /* Green */
+   green: {
+      backgroundColor: "#21BA45"
+   },
+   "inverted-green": {
+      backgroundColor: "#2ECC40"
+   },
+   /* Teal */
+   teal: {
+      backgroundColor: "#00B5AD"
+   },
+   "inverted-teal": {
+      backgroundColor: "#6DFFFF"
+   },
+   /* Blue */
+   blue: {
+      backgroundColor: "#2185D0"
+   },
+   "inverted-blue": {
+      backgroundColor: "#54C8FF"
+   },
+   /* Violet */
+   violet: {
+      backgroundColor: "#6435C9"
+   },
+   "inverted-violet": {
+      backgroundColor: "#A291FB"
+   },
+   /* Purple */
+   purple: {
+      backgroundColor: "#A333C8"
+   },
+   "inverted-purple": {
+      backgroundColor: "#DC73FF"
+   },
+   /* Pink */
+   pink: {
+      backgroundColor: "#E03997"
+   },
+   "inverted-pink": {
+      backgroundColor: "#FF8EDF"
+   },
+   /* Brown */
+   brown: {
+      backgroundColor: "#A5673F"
+   },
+   "inverted-brown": {
+      backgroundColor: "#D67C1C"
+   },
+   /* Grey */
+   grey: {
+      backgroundColor: "#767676"
+   },
+   "inverted-grey": {
+      backgroundColor: "#DCDDDE"
+   },
+   /* Black */
+   black: {
+      backgroundColor: "#1b1c1d"
+   },
+   "inverted-black": {
+      backgroundColor: "#545454"
+   },
+   /*--------------
+   Disabled
+   ---------------*/
+   disabled: {
+      cursor: "auto",
+      opacity: ".5"
+   },
+
+   /*.ui.range.disabled .inner:hover {
+   	cursor: auto;
+   }*/
+   disabledTrackFill: {
+      background: "#ccc"
+   }
+
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-semantic-ui-range/build/elements/slider.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _rangeCss = __webpack_require__("./node_modules/react-semantic-ui-range/build/elements/range.css.js");
+
+var _rangeCss2 = _interopRequireDefault(_rangeCss);
+
+var _reactDom = __webpack_require__("./node_modules/react-dom/cjs/react-dom.development.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Slider = function (_Component) {
+    _inherits(Slider, _Component);
+
+    function Slider(props) {
+        _classCallCheck(this, Slider);
+
+        var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+
+        _this.state = {
+            value: _this.props.settings.start,
+            position: 0,
+            offset: 10,
+            precision: 0,
+            mouseDown: false
+        };
+        _this.determinePosition = _this.determinePosition.bind(_this);
+        return _this;
+    }
+
+    _createClass(Slider, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.determinePrecision();
+            this.determinePosition(this.state.value);
+        }
+    }, {
+        key: 'determinePrecision',
+        value: function determinePrecision() {
+            var split = String(this.props.settings.step).split('.');
+            var decimalPlaces = void 0;
+            if (split.length == 2) {
+                decimalPlaces = split[1].length;
+            } else {
+                decimalPlaces = 0;
+            }
+            this.setState({
+                precision: Math.pow(10, decimalPlaces)
+            });
+        }
+    }, {
+        key: 'determineValue',
+        value: function determineValue(startPos, endPos, currentPos) {
+            var ratio = (currentPos - startPos) / (endPos - startPos);
+            var range = this.props.settings.max - this.props.settings.min;
+            var difference = Math.round(ratio * range / this.props.settings.step) * this.props.settings.step;
+            // Use precision to avoid ugly Javascript floating point rounding issues
+            // (like 35 * .01 = 0.35000000000000003)
+            difference = Math.round(difference * this.state.precision) / this.state.precision;
+            return difference + this.props.settings.min;
+        }
+    }, {
+        key: 'determinePosition',
+        value: function determinePosition(value) {
+            var ratio = (value - this.props.settings.min) / (this.props.settings.max - this.props.settings.min);
+            var trackFillLeft = _reactDom2.default.findDOMNode(this.trackFill).getBoundingClientRect().left;
+            var innerLeft = _reactDom2.default.findDOMNode(this.inner).getBoundingClientRect().left;
+            var position = Math.round(ratio * this.inner.offsetWidth) + trackFillLeft - innerLeft - this.state.offset;
+            this.setState({
+                position: position
+            });
+        }
+    }, {
+        key: 'setValue',
+        value: function setValue(value, triggeredByUser) {
+            if (typeof triggeredByUser === 'undefined') {
+                triggeredByUser = true;
+            }
+            if (this.state.value !== value) {
+                /*if(this.props.settings.input) {
+                    $(this.props.settings.input).val(value);
+                }*/
+                if (this.props.settings.onChange) {
+                    this.props.settings.onChange(value, { triggeredByUser: triggeredByUser });
+                }
+                this.setState({
+                    value: value
+                });
+            }
+        }
+    }, {
+        key: 'setValuePosition',
+        value: function setValuePosition(val, triggeredByUser) {
+            if (typeof triggeredByUser === 'undefined') {
+                triggeredByUser = true;
+            }
+            if (val <= this.props.settings.max && val >= this.props.settings.min) {
+                var position = this.determinePosition(val);
+                this.setValue(val, triggeredByUser);
+            }
+        }
+    }, {
+        key: 'rangeMouseDown',
+        value: function rangeMouseDown(isTouch, e) {
+            e.stopPropagation();
+            if (!this.props.disabled) {
+                e.preventDefault();
+                this.setState({
+                    mouseDown: true
+                });
+                var innerBoundingClientRect = _reactDom2.default.findDOMNode(this.inner).getBoundingClientRect();
+                this.innerLeft = innerBoundingClientRect.left;
+                this.innerRight = this.innerLeft + this.inner.offsetWidth;
+                var pageX = void 0;
+                e.pageX ? pageX = e.pageX : console.log("PageX undefined");
+                var value = this.determineValue(this.innerLeft, this.innerRight, pageX);
+                if (pageX >= this.innerLeft && pageX <= this.innerRight) {
+                    this.setValuePosition(value, false);
+                }
+            }
+        }
+    }, {
+        key: 'rangeMouseMove',
+        value: function rangeMouseMove(isTouch, e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (this.state.mouseDown) {
+                var pageX = void 0;
+                e.pageX ? pageX = e.pageX : console.log("PageX undefined");
+                var value = this.determineValue(this.innerLeft, this.innerRight, pageX);
+                if (pageX >= this.innerLeft && pageX <= this.innerRight) {
+                    this.setValuePosition(value, false);
+                }
+            }
+        }
+    }, {
+        key: 'rangeMouseUp',
+        value: function rangeMouseUp() {
+            this.setState({
+                mouseDown: false
+            });
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.inner = undefined;
+            this.innerLeft = undefined;
+            this.innerRight = undefined;
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            if (nextProps.value !== this.state.value) {
+                this.setValuePosition(nextProps.value, true);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    {
+                        style: _extends({}, _rangeCss2.default.range, this.props.disabled ? _rangeCss2.default.disabled : {}, this.props.style),
+                        onMouseDown: this.rangeMouseDown.bind(this, false),
+                        onMouseMove: this.rangeMouseMove.bind(this, false),
+                        onMouseUp: this.rangeMouseUp.bind(this, false),
+                        onTouchStart: this.rangeMouseDown.bind(this, true)
+                    },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'semantic_ui_range_inner', ref: function ref(inner) {
+                                _this2.inner = inner;
+                            }, style: _rangeCss2.default.inner },
+                        _react2.default.createElement('div', { style: _extends({}, _rangeCss2.default.track, this.props.inverted ? _rangeCss2.default.invertedTrack : {})
+                        }),
+                        _react2.default.createElement('div', { ref: function ref(trackFill) {
+                                _this2.trackFill = trackFill;
+                            }, style: _extends({}, _rangeCss2.default.trackFill, this.props.inverted ? _rangeCss2.default.invertedTrackFill : {}, { width: this.state.position + this.state.offset + "px" }, _rangeCss2.default[this.props.inverted ? "inverted-" + this.props.color : this.props.color], this.props.disabled ? _rangeCss2.default.disabledTrackFill : {})
+                        }),
+                        _react2.default.createElement('div', { style: _extends({}, _rangeCss2.default.thumb, { left: this.state.position + "px" }) })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Slider;
+}(_react.Component);
+
+exports.default = Slider;
+
+
+Slider.defaultProps = {
+    color: 'red',
+    settings: {
+        min: 0,
+        max: 10,
+        step: 1,
+        start: 0
+    }
+};
+
+Slider.propTypes = {
+    settings: _propTypes2.default.shape({
+        min: _propTypes2.default.number,
+        max: _propTypes2.default.number,
+        step: _propTypes2.default.number,
+        start: _propTypes2.default.number,
+        onChange: _propTypes2.default.func
+    }),
+    color: _propTypes2.default.string,
+    inverted: _propTypes2.default.bool
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-semantic-ui-range/build/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _slider = __webpack_require__("./node_modules/react-semantic-ui-range/build/elements/slider.js");
+
+var _slider2 = _interopRequireDefault(_slider);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = {
+    Slider: _slider2.default
+};
+
+/***/ }),
+
 /***/ "./node_modules/react-spring/dist/react-spring.es.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60711,7 +61255,7 @@ Loader.propTypes =  true ? {
   size: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.oneOf(__WEBPACK_IMPORTED_MODULE_4__lib__["c" /* SUI */].SIZES)
 } : {};
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Loader);
+/* harmony default export */ __webpack_exports__["a"] = (Loader);
 
 /***/ }),
 
@@ -60720,7 +61264,7 @@ Loader.propTypes =  true ? {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Loader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Loader/Loader.js");
-/* unused harmony reexport default */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Loader__["a"]; });
 
 
 
@@ -61841,7 +62385,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__addons_Select__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/Select/index.js");
 /* unused harmony reexport Select */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/TextArea/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_9__addons_TextArea__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__addons_TransitionablePortal__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/addons/TransitionablePortal/index.js");
 /* unused harmony reexport TransitionablePortal */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__behaviors_Visibility__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/behaviors/Visibility/index.js");
@@ -61887,7 +62431,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__collections_Menu_MenuMenu__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Menu/MenuMenu.js");
 /* unused harmony reexport MenuMenu */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__collections_Message__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/index.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_32__collections_Message__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_32__collections_Message__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__collections_Message_MessageContent__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/MessageContent.js");
 /* unused harmony reexport MessageContent */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__collections_Message_MessageHeader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/collections/Message/MessageHeader.js");
@@ -61961,7 +62505,7 @@ StepTitle.create = Object(__WEBPACK_IMPORTED_MODULE_4__lib__["m" /* createShorth
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__elements_List_ListList__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/List/ListList.js");
 /* unused harmony reexport ListList */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__elements_Loader__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Loader/index.js");
-/* unused harmony reexport Loader */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_69__elements_Loader__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__elements_Rail__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Rail/index.js");
 /* unused harmony reexport Rail */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__elements_Reveal__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/elements/Reveal/index.js");
@@ -100607,7 +101151,7 @@ module.exports = {
 /***/ "./node_modules/web3/package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"web3@^1.0.0-beta.34","_id":"web3@1.0.0-beta.34","_inBundle":false,"_integrity":"sha1-NH5WG3hAmMtVYzFfSQR5odkfKrE=","_location":"/web3","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"web3@^1.0.0-beta.34","name":"web3","escapedName":"web3","rawSpec":"^1.0.0-beta.34","saveSpec":null,"fetchSpec":"^1.0.0-beta.34"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/web3/-/web3-1.0.0-beta.34.tgz","_shasum":"347e561b784098cb5563315f490479a1d91f2ab1","_spec":"web3@^1.0.0-beta.34","_where":"/home/tomasroaldsnes/Code/lovers-for-life","author":{"name":"ethereum.org"},"authors":[{"name":"Fabian Vogelsteller","email":"fabian@ethereum.org","homepage":"http://frozeman.de"},{"name":"Marek Kotewicz","email":"marek@parity.io","url":"https://github.com/debris"},{"name":"Marian Oancea","url":"https://github.com/cubedro"},{"name":"Gav Wood","email":"g@parity.io","homepage":"http://gavwood.com"},{"name":"Jeffery Wilcke","email":"jeffrey.wilcke@ethereum.org","url":"https://github.com/obscuren"}],"bugs":{"url":"https://github.com/ethereum/web3.js/issues"},"bundleDependencies":false,"dependencies":{"web3-bzz":"1.0.0-beta.34","web3-core":"1.0.0-beta.34","web3-eth":"1.0.0-beta.34","web3-eth-personal":"1.0.0-beta.34","web3-net":"1.0.0-beta.34","web3-shh":"1.0.0-beta.34","web3-utils":"1.0.0-beta.34"},"deprecated":false,"description":"Ethereum JavaScript API","keywords":["Ethereum","JavaScript","API"],"license":"LGPL-3.0","main":"src/index.js","name":"web3","namespace":"ethereum","repository":{"type":"git","url":"https://github.com/ethereum/web3.js/tree/master/packages/web3"},"types":"index.d.ts","version":"1.0.0-beta.34"}
+module.exports = {"_from":"web3@^1.0.0-beta.34","_id":"web3@1.0.0-beta.34","_inBundle":false,"_integrity":"sha1-NH5WG3hAmMtVYzFfSQR5odkfKrE=","_location":"/web3","_phantomChildren":{},"_requested":{"escapedName":"web3","fetchSpec":"^1.0.0-beta.34","name":"web3","raw":"web3@^1.0.0-beta.34","rawSpec":"^1.0.0-beta.34","registry":true,"saveSpec":null,"type":"range"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/web3/-/web3-1.0.0-beta.34.tgz","_shasum":"347e561b784098cb5563315f490479a1d91f2ab1","_shrinkwrap":null,"_spec":"web3@^1.0.0-beta.34","_where":"/home/tomasroaldsnes/Code/lovers-for-life","author":{"name":"ethereum.org"},"authors":[{"name":"Fabian Vogelsteller","email":"fabian@ethereum.org","homepage":"http://frozeman.de"},{"name":"Marek Kotewicz","email":"marek@parity.io","url":"https://github.com/debris"},{"name":"Marian Oancea","url":"https://github.com/cubedro"},{"name":"Gav Wood","email":"g@parity.io","homepage":"http://gavwood.com"},{"name":"Jeffery Wilcke","email":"jeffrey.wilcke@ethereum.org","url":"https://github.com/obscuren"}],"bugs":{"url":"https://github.com/ethereum/web3.js/issues"},"bundleDependencies":false,"dependencies":{"web3-bzz":"1.0.0-beta.34","web3-core":"1.0.0-beta.34","web3-eth":"1.0.0-beta.34","web3-eth-personal":"1.0.0-beta.34","web3-net":"1.0.0-beta.34","web3-shh":"1.0.0-beta.34","web3-utils":"1.0.0-beta.34"},"deprecated":false,"description":"Ethereum JavaScript API","devDependencies":{},"keywords":["API","Ethereum","JavaScript"],"license":"LGPL-3.0","main":"src/index.js","name":"web3","namespace":"ethereum","optionalDependencies":{},"readme":"# web3\n\nThis is a main package of [web3.js](https://github.com/ethereum/web3.js)\n\nPlease read the main [readme](https://github.com/ethereum/web3.js/blob/1.0/README.md) and [documentation](https://web3js.readthedocs.io/en/1.0/) for more.\n\n## Installation\n\n### Node.js\n\n```bash\nnpm install web3\n```\n","readmeFilename":"README.md","repository":{"type":"git","url":"https://github.com/ethereum/web3.js/tree/master/packages/web3"},"types":"index.d.ts","version":"1.0.0-beta.34"}
 
 /***/ }),
 
@@ -100783,7 +101327,7 @@ module.exports = __webpack_require__("./node_modules/websocket/package.json").ve
 /***/ "./node_modules/websocket/package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","_id":"websocket@1.0.24","_inBundle":false,"_integrity":"","_location":"/websocket","_phantomChildren":{},"_requested":{"type":"git","raw":"websocket@git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","name":"websocket","escapedName":"websocket","rawSpec":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","saveSpec":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","fetchSpec":"git://github.com/frozeman/WebSocket-Node.git","gitCommittish":"browserifyCompatible"},"_requiredBy":["/web3-providers-ws"],"_resolved":"git://github.com/frozeman/WebSocket-Node.git#7004c39c42ac98875ab61126e5b4a925430f592c","_spec":"websocket@git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","_where":"/home/tomasroaldsnes/Code/lovers-for-life/node_modules/web3-providers-ws","author":{"name":"Brian McKelvey","email":"brian@worlize.com","url":"https://www.worlize.com/"},"browser":"lib/browser.js","bugs":{"url":"https://github.com/theturtle32/WebSocket-Node/issues"},"bundleDependencies":false,"config":{"verbose":false},"contributors":[{"name":"Iñaki Baz Castillo","email":"ibc@aliax.net","url":"http://dev.sipdoc.net"}],"dependencies":{"debug":"^2.2.0","nan":"^2.3.3","typedarray-to-buffer":"^3.1.2","yaeti":"^0.0.6"},"deprecated":false,"description":"Websocket Client & Server Library implementing the WebSocket protocol as specified in RFC 6455.","devDependencies":{"buffer-equal":"^1.0.0","faucet":"^0.0.1","gulp":"git+https://github.com/gulpjs/gulp.git#4.0","gulp-jshint":"^2.0.4","jshint":"^2.0.0","jshint-stylish":"^2.2.1","tape":"^4.0.1"},"directories":{"lib":"./lib"},"engines":{"node":">=0.8.0"},"homepage":"https://github.com/theturtle32/WebSocket-Node","keywords":["websocket","websockets","socket","networking","comet","push","RFC-6455","realtime","server","client"],"license":"Apache-2.0","main":"index","name":"websocket","repository":{"type":"git","url":"git+https://github.com/theturtle32/WebSocket-Node.git"},"scripts":{"gulp":"gulp","install":"(node-gyp rebuild 2> builderror.log) || (exit 0)","test":"faucet test/unit"},"version":"1.0.24"}
+module.exports = {"_args":[["websocket@git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","/home/tomasroaldsnes/Code/lovers-for-life/node_modules/web3-providers-ws"]],"_from":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","_id":"websocket@1.0.24","_inCache":true,"_installable":true,"_location":"/websocket","_phantomChildren":{},"_requested":{"hosted":{"directUrl":"https://raw.githubusercontent.com/frozeman/WebSocket-Node/browserifyCompatible/package.json","gitUrl":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","httpsUrl":"git+https://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","shortcut":"github:frozeman/WebSocket-Node#browserifyCompatible","ssh":"git@github.com:frozeman/WebSocket-Node.git#browserifyCompatible","sshUrl":"git+ssh://git@github.com/frozeman/WebSocket-Node.git#browserifyCompatible","type":"github"},"name":"websocket","raw":"websocket@git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","rawSpec":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","scope":null,"spec":"git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","type":"hosted"},"_requiredBy":["/web3-providers-ws"],"_resolved":"git://github.com/frozeman/WebSocket-Node.git#7004c39c42ac98875ab61126e5b4a925430f592c","_shasum":"fb59f15d02f844c96329f492731b785424e75f85","_shrinkwrap":null,"_spec":"websocket@git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible","_where":"/home/tomasroaldsnes/Code/lovers-for-life/node_modules/web3-providers-ws","author":{"email":"brian@worlize.com","name":"Brian McKelvey","url":"https://www.worlize.com/"},"browser":"lib/browser.js","bugs":{"url":"https://github.com/theturtle32/WebSocket-Node/issues"},"config":{"verbose":false},"contributors":[{"name":"Iñaki Baz Castillo","email":"ibc@aliax.net","url":"http://dev.sipdoc.net"}],"dependencies":{"debug":"^2.2.0","nan":"^2.3.3","typedarray-to-buffer":"^3.1.2","yaeti":"^0.0.6"},"description":"Websocket Client & Server Library implementing the WebSocket protocol as specified in RFC 6455.","devDependencies":{"buffer-equal":"^1.0.0","faucet":"^0.0.1","gulp":"git+https://github.com/gulpjs/gulp.git#4.0","gulp-jshint":"^2.0.4","jshint":"^2.0.0","jshint-stylish":"^2.2.1","tape":"^4.0.1"},"directories":{"lib":"./lib"},"engines":{"node":">=0.8.0"},"gitHead":"7004c39c42ac98875ab61126e5b4a925430f592c","homepage":"https://github.com/theturtle32/WebSocket-Node","keywords":["RFC-6455","client","comet","networking","push","realtime","server","socket","websocket","websockets"],"license":"Apache-2.0","main":"index","name":"websocket","optionalDependencies":{},"readme":"WebSocket Client & Server Implementation for Node\n=================================================\n\n[![npm version](https://badge.fury.io/js/websocket.svg)](http://badge.fury.io/js/websocket)\n\n[![NPM Downloads](https://img.shields.io/npm/dm/websocket.svg)](https://www.npmjs.com/package/websocket)\n\n[![NPM](https://nodei.co/npm/websocket.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/websocket/)\n\n[![NPM](https://nodei.co/npm-dl/websocket.png?height=3)](https://nodei.co/npm/websocket/)\n\n[ ![Codeship Status for theturtle32/WebSocket-Node](https://codeship.com/projects/70458270-8ee7-0132-7756-0a0cf4fe8e66/status?branch=master)](https://codeship.com/projects/61106)\n\nOverview\n--------\nThis is a (mostly) pure JavaScript implementation of the WebSocket protocol versions 8 and 13 for Node.  There are some example client and server applications that implement various interoperability testing protocols in the \"test/scripts\" folder.\n\nFor a WebSocket client written in ActionScript 3, see my [AS3WebScocket](https://github.com/theturtle32/AS3WebSocket) project.\n\n\nDocumentation\n=============\n\n[You can read the full API documentation in the docs folder.](docs/index.md)\n\n\nChangelog\n---------\n\n***Current Version: 1.0.24*** — Released 2016-12-28\n\n***Version 1.0.24***\n\n* Fixed a bug when using native keepalive on Node >= 6.0. (Thanks, [@prossin](https://github.com/prossin))\n* Upgrading outdated dependencies\n\n***Version 1.0.23***\n\n* Official support for Node 6.x\n* Updating dependencies. Specifically, updating nan to ^2.3.3\n\n***Version 1.0.22***\n\n* Updating to work with nan 2.x\n\n\n***Version 1.0.21***\n\n* Incremented and re-published to work around an aborted npm publish of v1.0.20.\n\n***Version 1.0.20***\n\n* Added EventTarget to the W3CWebSocket interface (Thanks, [@ibc](https://github.com/ibc)!)\n* Corrected an inaccurate error message. (Thanks, [@lekoaf](https://github.com/lekoaf)!)\n\n***Version 1.0.19***\n\n* Updated to nan v1.8.x (tested with v1.8.4)\n* Added `\"license\": \"Apache-2.0\"` to package.json via [pull request #199](https://github.com/theturtle32/WebSocket-Node/pull/199) by [@pgilad](https://github.com/pgilad). See [npm1k.org](http://npm1k.org/).\n\n[View the full changelog](CHANGELOG.md)\n\nBrowser Support\n---------------\n\nAll current browsers are fully supported.\n\n* Firefox 7-9 (Old) (Protocol Version 8)\n* Firefox 10+ (Protocol Version 13)\n* Chrome 14,15 (Old) (Protocol Version 8)\n* Chrome 16+ (Protocol Version 13)\n* Internet Explorer 10+ (Protocol Version 13)\n* Safari 6+ (Protocol Version 13)\n\n***Safari older than 6.0 is not supported since it uses a very old draft of WebSockets***\n\n***If you need to simultaneously support legacy browser versions that had implemented draft-75/draft-76/draft-00, take a look here: https://gist.github.com/1428579***\n\nBenchmarks\n----------\nThere are some basic benchmarking sections in the Autobahn test suite.  I've put up a [benchmark page](http://theturtle32.github.com/WebSocket-Node/benchmarks/) that shows the results from the Autobahn tests run against AutobahnServer 0.4.10, WebSocket-Node 1.0.2, WebSocket-Node 1.0.4, and ws 0.3.4.\n\nAutobahn Tests\n--------------\nThe very complete [Autobahn Test Suite](http://autobahn.ws/testsuite/) is used by most WebSocket implementations to test spec compliance and interoperability.\n\n- [View Server Test Results](http://theturtle32.github.com/WebSocket-Node/test-report/servers/)\n\nNotes\n-----\nThis library has been used in production on [worlize.com](https://www.worlize.com) since April 2011 and seems to be stable.  Your mileage may vary.\n\n**Tested with the following node versions:**\n\n- 6.2.0\n- 5.11.1\n- 4.4.4\n- 0.10.45\n\nIt may work in earlier or later versions but I'm not actively testing it outside of the listed versions.  YMMV.\n\nInstallation\n------------\n\nA few users have reported difficulties building the native extensions without first manually installing node-gyp.  If you have trouble building the native extensions, make sure you've got a C++ compiler, and have done `npm install -g node-gyp` first. \n\nNative extensions are optional, however, and WebSocket-Node will work even if the extensions cannot be compiled.\n\nIn your project root:\n\n    $ npm install websocket\n  \nThen in your code:\n\n```javascript\nvar WebSocketServer = require('websocket').server;\nvar WebSocketClient = require('websocket').client;\nvar WebSocketFrame  = require('websocket').frame;\nvar WebSocketRouter = require('websocket').router;\nvar W3CWebSocket = require('websocket').w3cwebsocket;\n```\n\nNote for Windows Users\n----------------------\nBecause there is a small C++ component used for validating UTF-8 data, you will need to install a few other software packages in addition to Node to be able to build this module:\n\n- [Microsoft Visual C++](http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-cpp-express)\n- [Python 2.7](http://www.python.org/download/) (NOT Python 3.x)\n\n\nCurrent Features:\n-----------------\n- Licensed under the Apache License, Version 2.0\n- Protocol version \"8\" and \"13\" (Draft-08 through the final RFC) framing and handshake\n- Can handle/aggregate received fragmented messages\n- Can fragment outgoing messages\n- Router to mount multiple applications to various path and protocol combinations\n- TLS supported for outbound connections via WebSocketClient\n- TLS supported for server connections (use https.createServer instead of http.createServer)\n  - Thanks to [pors](https://github.com/pors) for confirming this!\n- Cookie setting and parsing\n- Tunable settings\n  - Max Receivable Frame Size\n  - Max Aggregate ReceivedMessage Size\n  - Whether to fragment outgoing messages\n  - Fragmentation chunk size for outgoing messages\n  - Whether to automatically send ping frames for the purposes of keepalive\n  - Keep-alive ping interval\n  - Whether or not to automatically assemble received fragments (allows application to handle individual fragments directly)\n  - How long to wait after sending a close frame for acknowledgment before closing the socket.\n- [W3C WebSocket API](http://www.w3.org/TR/websockets/) for applications running on both Node and browsers (via the `W3CWebSocket` class). \n\n\nKnown Issues/Missing Features:\n------------------------------\n- No API for user-provided protocol extensions.\n\n\nUsage Examples\n==============\n\nServer Example\n--------------\n\nHere's a short example showing a server that echos back anything sent to it, whether utf-8 or binary.\n\n```javascript\n#!/usr/bin/env node\nvar WebSocketServer = require('websocket').server;\nvar http = require('http');\n\nvar server = http.createServer(function(request, response) {\n    console.log((new Date()) + ' Received request for ' + request.url);\n    response.writeHead(404);\n    response.end();\n});\nserver.listen(8080, function() {\n    console.log((new Date()) + ' Server is listening on port 8080');\n});\n\nwsServer = new WebSocketServer({\n    httpServer: server,\n    // You should not use autoAcceptConnections for production\n    // applications, as it defeats all standard cross-origin protection\n    // facilities built into the protocol and the browser.  You should\n    // *always* verify the connection's origin and decide whether or not\n    // to accept it.\n    autoAcceptConnections: false\n});\n\nfunction originIsAllowed(origin) {\n  // put logic here to detect whether the specified origin is allowed.\n  return true;\n}\n\nwsServer.on('request', function(request) {\n    if (!originIsAllowed(request.origin)) {\n      // Make sure we only accept requests from an allowed origin\n      request.reject();\n      console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');\n      return;\n    }\n    \n    var connection = request.accept('echo-protocol', request.origin);\n    console.log((new Date()) + ' Connection accepted.');\n    connection.on('message', function(message) {\n        if (message.type === 'utf8') {\n            console.log('Received Message: ' + message.utf8Data);\n            connection.sendUTF(message.utf8Data);\n        }\n        else if (message.type === 'binary') {\n            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');\n            connection.sendBytes(message.binaryData);\n        }\n    });\n    connection.on('close', function(reasonCode, description) {\n        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');\n    });\n});\n```\n\nClient Example\n--------------\n\nThis is a simple example client that will print out any utf-8 messages it receives on the console, and periodically sends a random number.\n\n*This code demonstrates a client in Node.js, not in the browser*\n\n```javascript\n#!/usr/bin/env node\nvar WebSocketClient = require('websocket').client;\n\nvar client = new WebSocketClient();\n\nclient.on('connectFailed', function(error) {\n    console.log('Connect Error: ' + error.toString());\n});\n\nclient.on('connect', function(connection) {\n    console.log('WebSocket Client Connected');\n    connection.on('error', function(error) {\n        console.log(\"Connection Error: \" + error.toString());\n    });\n    connection.on('close', function() {\n        console.log('echo-protocol Connection Closed');\n    });\n    connection.on('message', function(message) {\n        if (message.type === 'utf8') {\n            console.log(\"Received: '\" + message.utf8Data + \"'\");\n        }\n    });\n    \n    function sendNumber() {\n        if (connection.connected) {\n            var number = Math.round(Math.random() * 0xFFFFFF);\n            connection.sendUTF(number.toString());\n            setTimeout(sendNumber, 1000);\n        }\n    }\n    sendNumber();\n});\n\nclient.connect('ws://localhost:8080/', 'echo-protocol');\n```\n\nClient Example using the *W3C WebSocket API*\n--------------------------------------------\n\nSame example as above but using the [W3C WebSocket API](http://www.w3.org/TR/websockets/).\n\n```javascript\nvar W3CWebSocket = require('websocket').w3cwebsocket;\n\nvar client = new W3CWebSocket('ws://localhost:8080/', 'echo-protocol');\n\nclient.onerror = function() {\n    console.log('Connection Error');\n};\n\nclient.onopen = function() {\n    console.log('WebSocket Client Connected');\n\n    function sendNumber() {\n        if (client.readyState === client.OPEN) {\n            var number = Math.round(Math.random() * 0xFFFFFF);\n            client.send(number.toString());\n            setTimeout(sendNumber, 1000);\n        }\n    }\n    sendNumber();\n};\n\nclient.onclose = function() {\n    console.log('echo-protocol Client Closed');\n};\n\nclient.onmessage = function(e) {\n    if (typeof e.data === 'string') {\n        console.log(\"Received: '\" + e.data + \"'\");\n    }\n};\n```\n    \nRequest Router Example\n----------------------\n\nFor an example of using the request router, see `libwebsockets-test-server.js` in the `test` folder.\n\n\nResources\n---------\n\nA presentation on the state of the WebSockets protocol that I gave on July 23, 2011 at the LA Hacker News meetup.  [WebSockets: The Real-Time Web, Delivered](http://www.scribd.com/doc/60898569/WebSockets-The-Real-Time-Web-Delivered)\n","readmeFilename":"README.md","repository":{"type":"git","url":"git+https://github.com/theturtle32/WebSocket-Node.git"},"scripts":{"gulp":"gulp","install":"(node-gyp rebuild 2> builderror.log) || (exit 0)","test":"faucet test/unit"},"version":"1.0.24"}
 
 /***/ }),
 

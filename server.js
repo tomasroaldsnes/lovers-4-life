@@ -8,7 +8,7 @@ const handler = routes.getRequestHandler(app)
 // Without express
 const {createServer} = require('http')
 app.prepare().then(() => {
-  createServer(handler).listen(80, err  => {
+  createServer(handler).listen(8080, err  => {
     if(err) throw err;
     console.log('Ready on port 80');
   })

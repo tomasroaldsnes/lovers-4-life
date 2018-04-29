@@ -30,7 +30,7 @@ export default class LoverAll extends Component{
         let i;
         for (i = 0; i < amountOfLovers; i++) {
             const loverobj = await lover.methods.loverList(i).call();
-            all.push({ yn: loverobj[0], ln: loverobj[1], messages: loverobj[2] });
+            all.push({ yn: loverobj[0], ln: loverobj[1], messages: loverobj[2], worth: loverobj[3] });
 
             //loverList.push({ yourName: loverobj[0], loversName: loverobj[1], message: loverobj[2] });
         }; 
@@ -46,7 +46,9 @@ export default class LoverAll extends Component{
         const items = this.state.all.map(all => {
             return{
                 header: (all.yn + ' + ' + all.ln),
-                description: all.messages,
+                description: ('Because ' + all.messages),
+                extra: (web3.utils.fromWei(all.worth.toString(), 'ether') + ' ETH'),
+                color: 'purple'
                 
             };
         });

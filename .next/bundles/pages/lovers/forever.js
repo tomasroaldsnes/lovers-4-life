@@ -1,1377 +1,8 @@
 module.exports =
 
-        __NEXT_REGISTER_PAGE('/', function() {
+        __NEXT_REGISTER_PAGE('/lovers/forever', function() {
           var comp = 
-      webpackJsonp([3],{
-
-/***/ "./components/Form.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__ = __webpack_require__("./ethereum/lover.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__ = __webpack_require__("./node_modules/react-semantic-ui-range/build/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__);
-
-var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-(function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-// Using an ES6 transpiler like Babel
-
-
-
-var FormLovers = function (_Component) {
-    _inherits(FormLovers, _Component);
-
-    function FormLovers() {
-        var _ref,
-            _this2 = this;
-
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, FormLovers);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FormLovers.__proto__ || Object.getPrototypeOf(FormLovers)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            yourName: '',
-            partnersName: '',
-            why: '',
-            isLoading: false,
-            allClicked: false,
-            error: false,
-            errorMessage: '',
-            sliderValue: 0.0550
-        }, _this.handleSliderChange = function (value) {
-            _this.setState({
-                sliderVolume: value
-            });
-        }, _this.onSubmit = function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(event) {
-                var payment, accounts, newCampaign;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                event.preventDefault();
-                                _context.prev = 1;
-
-                                _this.setState({ error: false });
-                                _this.setState({ isLoading: true });
-                                payment = __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].utils.toWei(_this.state.sliderValue.toString(), 'ether');
-
-                                console.log(payment);
-                                _context.next = 8;
-                                return __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__["a" /* default */].eth.getAccounts();
-
-                            case 8:
-                                accounts = _context.sent;
-                                _context.next = 11;
-                                return __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__["a" /* default */].methods.createLover(_this.state.yourName, _this.state.partnersName, _this.state.why).send({
-                                    from: accounts[0],
-                                    value: payment
-                                });
-
-                            case 11:
-                                newCampaign = _context.sent;
-
-                                __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/' + accounts[0]);
-
-                                //this.setState({isLoading: false});
-
-                                _context.next = 18;
-                                break;
-
-                            case 15:
-                                _context.prev = 15;
-                                _context.t0 = _context['catch'](1);
-
-                                _this.setState({
-                                    error: true,
-                                    isLoading: false,
-                                    errorMessage: _context.t0.message
-                                });
-
-                            case 18:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, _this2, [[1, 15]]);
-            }));
-
-            return function (_x) {
-                return _ref2.apply(this, arguments);
-            };
-        }(), _this.seeAllLovers = function () {
-            _this.setState({ allClicked: true });
-            __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute('/lovers/all');
-        }, _temp), _possibleConstructorReturn(_this, _ret);
-    }
-    //web3.utils.toWei(this.state.sliderValue, 'ether')
-
-
-    _createClass(FormLovers, [{
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
-
-            var value = this.state.value;
-
-            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                'div',
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 68
-                    }
-                },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 69
-                        }
-                    },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */],
-                        { onSubmit: this.onSubmit, inverted: true, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 70
-                            }
-                        },
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Group,
-                            { widths: 'equal', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 71
-                                }
-                            },
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["j" /* Input */],
-                                value: this.state.yourName,
-                                label: 'Your name',
-                                onChange: function onChange(event) {
-                                    return _this3.setState({ yourName: event.target.value });
-                                },
-                                placeholder: 'Your name', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 72
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["j" /* Input */],
-                                value: this.state.partnersName,
-                                label: 'Partners name',
-                                onChange: function onChange(event) {
-                                    return _this3.setState({ partnersName: event.target.value });
-                                },
-                                placeholder: 'Partners name', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 78
-                                }
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field, { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["m" /* TextArea */],
-                            value: this.state.why,
-                            transparent: true,
-                            label: 'Why do you love your partner?',
-                            onChange: function onChange(event) {
-                                return _this3.setState({ why: event.target.value });
-                            },
-                            placeholder: 'The text will be displayed like this: *Your name* + *Partners name* and your message displayed below.',
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 86
-                            }
-                        }),
-                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
-                            { textAlign: 'center', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 94
-                                }
-                            },
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 95
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 96
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
-                                { as: 'h3', inverted: true, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 97
-                                    }
-                                },
-                                'Decide how much your love is worth:'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_semantic_ui_range__["Slider"], { color: 'yellow', inverted: true,
-                                settings: {
-                                    start: 0.0550,
-                                    min: 0.0009,
-                                    max: 0.1001,
-                                    step: 0.0001,
-                                    onChange: function onChange(value) {
-                                        _this3.setState({
-                                            sliderValue: value
-                                        });
-                                    }
-                                }, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 98
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
-                                { as: 'h2', inverted: true, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 110
-                                    }
-                                },
-                                this.state.sliderValue.toFixed(4),
-                                ' ETH'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
-                                { hidden: !this.state.isLoading, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 111
-                                    }
-                                },
-                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 112
-                                        }
-                                    },
-                                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 113
-                                            }
-                                        },
-                                        'Just one second'
-                                    ),
-                                    'Foreverizing your love. Please accept the transaction in the MetaMask plugin.'
-                                )
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */],
-                                { hidden: !this.state.error, negative: this.state.error, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 117
-                                    }
-                                },
-                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Content,
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 118
-                                        }
-                                    },
-                                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["l" /* Message */].Header,
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 119
-                                            }
-                                        },
-                                        'Oops!'
-                                    ),
-                                    'Something went wrong here. Transaction was rejected. Do you have sufficient funds in your Meta Mask account?'
-                                )
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 123
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 124
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 125
-                                }
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["e" /* Form */].Field,
-                                { control: __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["a" /* Button */], icon: true, color: 'yellow', labelPosition: 'left', loading: this.state.isLoading, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 126
-                                    }
-                                },
-                                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'red', __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 127
-                                    }
-                                }),
-                                'Submit to blockchain'
-                            )
-                        )
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
-                    { textAlign: 'center', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 134
-                        }
-                    },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 135
-                        }
-                    }),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 136
-                        }
-                    }),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["a" /* Button */],
-                        { tiny: true, inverted: true, color: 'gray', loading: this.state.allClicked, onClick: this.seeAllLovers, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 137
-                            }
-                        },
-                        'See all Lovers'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 138
-                        }
-                    }),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        'a',
-                        { href: 'https://github.com/tomasroaldsnes/lovers-4-life', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 139
-                            }
-                        },
-                        'GitHub'
-                    )
-                )
-            );
-        }
-    }, {
-        key: '__reactstandin__regenerateByEval',
-        value: function __reactstandin__regenerateByEval(key, code) {
-            this[key] = eval(code);
-        }
-    }]);
-
-    return FormLovers;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
-
-var _default = FormLovers;
-
-
-/* harmony default export */ __webpack_exports__["a"] = (_default);
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(FormLovers, 'FormLovers', '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js');
-    reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Form.js');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./components/Join.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__ = __webpack_require__("./ethereum/lover.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
-
-var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Join.js';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-(function () {
-  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-  enterModule && enterModule(module);
-})();
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-var Join = function (_Component) {
-  _inherits(Join, _Component);
-
-  function Join() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Join);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Join.__proto__ || Object.getPrototypeOf(Join)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      allLovers: undefined
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Join, [{
-    key: 'componentWillMount',
-    value: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var amountOfLovers;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-
-                this.setState({ isLoading: true });
-
-                //const lover = Campaign(props.query.address);
-                _context.next = 3;
-                return __WEBPACK_IMPORTED_MODULE_3__ethereum_lover__["a" /* default */].methods.amountOfLovers().call();
-
-              case 3:
-                amountOfLovers = _context.sent;
-
-
-                this.setState({ allLovers: amountOfLovers });
-
-              case 5:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function componentWillMount() {
-        return _ref2.apply(this, arguments);
-      }
-
-      return componentWillMount;
-    }()
-  }, {
-    key: 'render',
-    value: function render() {
-      var value = this.state.value;
-
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-        'div',
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 28
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 29
-            }
-          },
-          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
-            { as: 'h1', textAlign: 'center', inverted: true, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 31
-              }
-            },
-            'Join the ',
-            this.state.allLovers,
-            ' lovers that has already made their love public.'
-          )
-        )
-      );
-    }
-  }, {
-    key: '__reactstandin__regenerateByEval',
-    value: function __reactstandin__regenerateByEval(key, code) {
-      this[key] = eval(code);
-    }
-  }]);
-
-  return Join;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
-
-var _default = Join;
-
-
-/* harmony default export */ __webpack_exports__["a"] = (_default);
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(Join, 'Join', '/home/tomasroaldsnes/Code/lovers-for-life/components/Join.js');
-  reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Join.js');
-  leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./components/Layout.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_head__ = __webpack_require__("./node_modules/next/head.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_head___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_head__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Paralax__ = __webpack_require__("./components/Paralax.js");
-var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Layout.js';
-
-(function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
-
-
-
-
-
-
-var _default = function _default(props) {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        {
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 8
-            }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_next_head___default.a,
-            {
-                __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 10
-                }
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 11
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'icon', href: 'https://freeiconshop.com/wp-content/uploads/edd/heart-flat.png', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 12
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { charset: 'utf-8', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 14
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'title',
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 16
-                    }
-                },
-                'Proclaim your love on the blockchain'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,minimal-ui', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 18
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'mobile-web-app-capable', content: 'yes', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 20
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'apple-mobile-web-app-capable', content: 'yes', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 22
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'format-detection', content: 'telephone=no', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 24
-                }
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { name: 'theme-color', content: '#673AB8', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 26
-                }
-            })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Paralax__["a" /* default */], {
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 33
-            }
-        })
-    );
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (_default);
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Layout.js');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./components/Paralax.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_spring__ = __webpack_require__("./node_modules/react-spring/dist/react-spring.es.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Form__ = __webpack_require__("./components/Form.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Join__ = __webpack_require__("./components/Join.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
-var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js',
-    _this = this;
-
-(function () {
-  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-  enterModule && enterModule(module);
-})();
-
-
-
-
-
-
-
-
-
-// Little helpers ...
-var url = function url(name) {
-  var wrap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  return (wrap ? 'url(' : '') + 'https://awv3node-homepage.surge.sh/build/assets/' + name + '.svg' + (wrap ? ')' : '');
-};
-var Pink = function Pink(_ref) {
-  var children = _ref.children;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'span',
-    { style: { color: '#FF6AC1' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 11
-      }
-    },
-    children
-  );
-};
-var Yellow = function Yellow(_ref2) {
-  var children = _ref2.children;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'span',
-    { style: { color: '#EFF59B' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12
-      }
-    },
-    children
-  );
-};
-var Lightblue = function Lightblue(_ref3) {
-  var children = _ref3.children;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'span',
-    { style: { color: '#9AEDFE' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 13
-      }
-    },
-    children
-  );
-};
-var Green = function Green(_ref4) {
-  var children = _ref4.children;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'span',
-    { style: { color: '#57EE89' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14
-      }
-    },
-    children
-  );
-};
-var Blue = function Blue(_ref5) {
-  var children = _ref5.children;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'span',
-    { style: { color: '#57C7FF' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15
-      }
-    },
-    children
-  );
-};
-var Gray = function Gray(_ref6) {
-  var children = _ref6.children;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'span',
-    { style: { color: '#909090' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 16
-      }
-    },
-    children
-  );
-};
-
-var CardMetamask = function CardMetamask() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */],
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'https://yt3.ggpht.com/a-/AJLlDp29i67qzhS1E46MPzrY0Q9ZGurI8zEAc_ITBQ=s900-mo-c-c0xffffffff-rj-k-no', __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      }
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Content,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 22
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Header,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 23
-          }
-        },
-        'Install Meta Mask'
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 27
-          }
-        },
-        'Download Meta Mask from their website ',
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'a',
-          { href: 'https://metamask.io/', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 28
-            }
-          },
-          'here.'
-        )
-      )
-    )
-  );
-};
-
-var CardForm = function CardForm() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */],
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'https://www.shareicon.net/data/2015/08/20/87939_add_512x512.png', __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      }
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Content,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 42
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Header,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 43
-          }
-        },
-        'Fill out the form below'
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 47
-          }
-        },
-        'Put in your name, your partners name and why you love them.'
-      )
-    )
-  );
-};
-
-var CardPay = function CardPay() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */],
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 58
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["i" /* Image */], { src: 'http://icons-for-free.com/icon/download-bag_bank_coins_finance_money_saving_icon-3589.png', __source: {
-        fileName: _jsxFileName,
-        lineNumber: 59
-      }
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Content,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 60
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Header,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 61
-          }
-        },
-        'Accept Transaction'
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["b" /* Card */].Description,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 65
-          }
-        },
-        'You can choose how much you want to pay to proclaim your love.  '
-      )
-    )
-  );
-};
-
-var GridStuff = function GridStuff() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["c" /* Container */],
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 74
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 75
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
-        { as: 'h1', textAlign: 'center', inverted: true, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 76
-          }
-        },
-        'How It Works'
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */],
-        { columns: 'equal', divided: true, inverted: true, padded: true, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 77
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Row,
-          { color: '#909090', textAlign: 'center', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 78
-            }
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Column,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 79
-              }
-            },
-            CardMetamask()
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Column,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 82
-              }
-            },
-            CardForm()
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["f" /* Grid */].Column,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 85
-              }
-            },
-            CardPay()
-          )
-        )
-      )
-    )
-  );
-};
-
-var Header1 = function Header1() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */],
-    { as: 'h2', icon: true, inverted: true, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 96
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["h" /* Icon */], { name: 'heart', color: 'yellow', __source: {
-        fileName: _jsxFileName,
-        lineNumber: 97
-      }
-    }),
-    'Blockchain is forever. Love should be too.',
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["g" /* Header */].Subheader,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 99
-        }
-      },
-      'Proclaim your love for your partner on the Ethereum Blockchain.'
-    )
-  );
-};
-
-var _default = function _default() {
-
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */],
-    { ref: function ref(_ref7) {
-        return _this.parallax = _ref7;
-      }, pages: 4, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 111
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 1, speed: 1, style: { backgroundColor: '#390044' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 112
-      }
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 2, speed: 1, style: { backgroundColor: '#87BCDE' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 113
-      }
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer, { offset: 0, speed: 0, factor: 4, style: { backgroundColor: '#390044', backgroundSize: 'cover' }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 115
-      }
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 0.3, speed: -0.3, style: { pointerEvents: 'none' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 117
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('satellite4'), style: { width: '15%', marginLeft: '70%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 118
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 0, speed: 0.8, style: { opacity: 0.1 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 121
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '55%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 122
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '15%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 123
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 0.75, speed: 0.5, style: { opacity: 0.1 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 126
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '70%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 127
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '40%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 128
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 0, speed: 0.2, style: { opacity: 0.2 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 131
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '10%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 132
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '75%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 133
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 0.6, speed: -0.1, style: { opacity: 0.4 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 136
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 137
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 138
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 139
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 1.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 142
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 143
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 144
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 2, speed: -0.1, style: { opacity: 0.4 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 147
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 148
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 149
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 2.6, speed: 0.4, style: { opacity: 0.6 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 152
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '5%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 153
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '15%', marginLeft: '75%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 154
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      { offset: 3, speed: -0.1, style: { opacity: 0.4 }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 157
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '60%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 158
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '25%', marginLeft: '30%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 159
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '80%' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 160
-        }
-      })
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      {
-        offset: 0,
-        speed: 0.1,
-        onClick: function onClick() {
-          return _this.parallax.scrollTo(1);
-        },
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 167
-        }
-      },
-      Header1()
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      {
-        offset: 1,
-        speed: 0.3,
-        onClick: function onClick() {
-          return _this.parallax.scrollTo(2);
-        },
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 175
-        }
-      },
-      GridStuff()
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_spring__["a" /* Parallax */].Layer,
-      {
-        offset: 2,
-        speed: 0.3,
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 184
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 189
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Join__["a" /* default */], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 190
-          }
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 191
-          }
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 192
-          }
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Form__["a" /* default */], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 193
-          }
-        })
-      )
-    )
-  );
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (_default);
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(url, 'url', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Pink, 'Pink', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Yellow, 'Yellow', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Lightblue, 'Lightblue', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Green, 'Green', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Blue, 'Blue', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Gray, 'Gray', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(CardMetamask, 'CardMetamask', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(CardForm, 'CardForm', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(CardPay, 'CardPay', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(GridStuff, 'GridStuff', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(Header1, 'Header1', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/components/Paralax.js');
-  leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
+      webpackJsonp([4],{
 
 /***/ "./ethereum/lover.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -37427,14 +36058,6 @@ var warnLink = (0, _utils.execOnce)(_utils.warn);
 
 /***/ }),
 
-/***/ "./node_modules/next/head.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./node_modules/next/dist/lib/head.js")
-
-
-/***/ }),
-
 /***/ "./node_modules/next/link.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -45936,442 +44559,6 @@ var randomHex = function(size, callback) {
 
 module.exports = randomHex;
 
-
-/***/ }),
-
-/***/ "./node_modules/react-semantic-ui-range/build/elements/range.css.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-   value: true
-});
-
-var _thumb;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-exports.default = {
-   range: {
-      cursor: "pointer",
-      width: "100%",
-      height: "20px"
-   },
-   inner: {
-      margin: "0 10px 0 10px",
-      height: "20px",
-      position: "relative"
-   },
-   /*
-   .ui.range .inner:hover {
-    cursor: pointer;
-   }*/
-   track: {
-      position: "absolute",
-      width: "100%",
-      height: "4px",
-      borderRadius: "4px",
-      top: "9px",
-      left: "0",
-      backgroundColor: "rgba(0,0,0,.05)"
-   },
-   "invertedTrack": {
-      backgroundColor: "rgba(255,255,255,.08)"
-   },
-   trackFill: {
-      position: "absolute",
-      width: "0",
-      height: "4px",
-      borderRadius: "4px",
-      top: "9px",
-      left: "0",
-      backgroundColor: "#1b1c1d"
-   },
-   "invertedTrackFill": {
-      backgroundColor: "#545454"
-   },
-   thumb: (_thumb = {
-      position: "absolute",
-      top: "0",
-      left: "0",
-      height: "20px",
-      width: "20px",
-      background: "#fff linear-gradient(transparent, rgba(0, 0, 0, 0.5))"
-   }, _defineProperty(_thumb, "background", "#fff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.5))"), _defineProperty(_thumb, "background", "#fff -o-linear-gradient(transparent, rgba(0, 0, 0, 0.5))"), _defineProperty(_thumb, "background", "#fff -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.5))"), _defineProperty(_thumb, "borderRadius", "100%"), _defineProperty(_thumb, "backgroundColor", "rgba(255, 255, 255, 1)"), _defineProperty(_thumb, "boxShadow", "0 1px 2px 0 rgba(34,36,38,.15),0 0 0 1px rgba(34,36,38,.15) inset"), _thumb),
-   red: {
-      backgroundColor: "#DB2828"
-   },
-   "inverted-red": {
-      backgroundColor: "#FF695E"
-   },
-   /* Orange */
-   orange: {
-      backgroundColor: "#F2711C"
-   },
-   "inverted-orange": {
-      backgroundColor: "#FF851B"
-   },
-   /* Yellow */
-   yellow: {
-      backgroundColor: "#FBBD08"
-   },
-   "inverted-yellow": {
-      backgroundColor: "#FFE21F"
-   },
-   /* Olive */
-   olive: {
-      backgroundColor: "#B5CC18"
-   },
-   "inverted-olive": {
-      backgroundColor: "#D9E778"
-   },
-   /* Green */
-   green: {
-      backgroundColor: "#21BA45"
-   },
-   "inverted-green": {
-      backgroundColor: "#2ECC40"
-   },
-   /* Teal */
-   teal: {
-      backgroundColor: "#00B5AD"
-   },
-   "inverted-teal": {
-      backgroundColor: "#6DFFFF"
-   },
-   /* Blue */
-   blue: {
-      backgroundColor: "#2185D0"
-   },
-   "inverted-blue": {
-      backgroundColor: "#54C8FF"
-   },
-   /* Violet */
-   violet: {
-      backgroundColor: "#6435C9"
-   },
-   "inverted-violet": {
-      backgroundColor: "#A291FB"
-   },
-   /* Purple */
-   purple: {
-      backgroundColor: "#A333C8"
-   },
-   "inverted-purple": {
-      backgroundColor: "#DC73FF"
-   },
-   /* Pink */
-   pink: {
-      backgroundColor: "#E03997"
-   },
-   "inverted-pink": {
-      backgroundColor: "#FF8EDF"
-   },
-   /* Brown */
-   brown: {
-      backgroundColor: "#A5673F"
-   },
-   "inverted-brown": {
-      backgroundColor: "#D67C1C"
-   },
-   /* Grey */
-   grey: {
-      backgroundColor: "#767676"
-   },
-   "inverted-grey": {
-      backgroundColor: "#DCDDDE"
-   },
-   /* Black */
-   black: {
-      backgroundColor: "#1b1c1d"
-   },
-   "inverted-black": {
-      backgroundColor: "#545454"
-   },
-   /*--------------
-   Disabled
-   ---------------*/
-   disabled: {
-      cursor: "auto",
-      opacity: ".5"
-   },
-
-   /*.ui.range.disabled .inner:hover {
-   	cursor: auto;
-   }*/
-   disabledTrackFill: {
-      background: "#ccc"
-   }
-
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-semantic-ui-range/build/elements/slider.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _rangeCss = __webpack_require__("./node_modules/react-semantic-ui-range/build/elements/range.css.js");
-
-var _rangeCss2 = _interopRequireDefault(_rangeCss);
-
-var _reactDom = __webpack_require__("./node_modules/react-dom/cjs/react-dom.development.js");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Slider = function (_Component) {
-    _inherits(Slider, _Component);
-
-    function Slider(props) {
-        _classCallCheck(this, Slider);
-
-        var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
-
-        _this.state = {
-            value: _this.props.settings.start,
-            position: 0,
-            offset: 10,
-            precision: 0,
-            mouseDown: false
-        };
-        _this.determinePosition = _this.determinePosition.bind(_this);
-        return _this;
-    }
-
-    _createClass(Slider, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.determinePrecision();
-            this.determinePosition(this.state.value);
-        }
-    }, {
-        key: 'determinePrecision',
-        value: function determinePrecision() {
-            var split = String(this.props.settings.step).split('.');
-            var decimalPlaces = void 0;
-            if (split.length == 2) {
-                decimalPlaces = split[1].length;
-            } else {
-                decimalPlaces = 0;
-            }
-            this.setState({
-                precision: Math.pow(10, decimalPlaces)
-            });
-        }
-    }, {
-        key: 'determineValue',
-        value: function determineValue(startPos, endPos, currentPos) {
-            var ratio = (currentPos - startPos) / (endPos - startPos);
-            var range = this.props.settings.max - this.props.settings.min;
-            var difference = Math.round(ratio * range / this.props.settings.step) * this.props.settings.step;
-            // Use precision to avoid ugly Javascript floating point rounding issues
-            // (like 35 * .01 = 0.35000000000000003)
-            difference = Math.round(difference * this.state.precision) / this.state.precision;
-            return difference + this.props.settings.min;
-        }
-    }, {
-        key: 'determinePosition',
-        value: function determinePosition(value) {
-            var ratio = (value - this.props.settings.min) / (this.props.settings.max - this.props.settings.min);
-            var trackFillLeft = _reactDom2.default.findDOMNode(this.trackFill).getBoundingClientRect().left;
-            var innerLeft = _reactDom2.default.findDOMNode(this.inner).getBoundingClientRect().left;
-            var position = Math.round(ratio * this.inner.offsetWidth) + trackFillLeft - innerLeft - this.state.offset;
-            this.setState({
-                position: position
-            });
-        }
-    }, {
-        key: 'setValue',
-        value: function setValue(value, triggeredByUser) {
-            if (typeof triggeredByUser === 'undefined') {
-                triggeredByUser = true;
-            }
-            if (this.state.value !== value) {
-                /*if(this.props.settings.input) {
-                    $(this.props.settings.input).val(value);
-                }*/
-                if (this.props.settings.onChange) {
-                    this.props.settings.onChange(value, { triggeredByUser: triggeredByUser });
-                }
-                this.setState({
-                    value: value
-                });
-            }
-        }
-    }, {
-        key: 'setValuePosition',
-        value: function setValuePosition(val, triggeredByUser) {
-            if (typeof triggeredByUser === 'undefined') {
-                triggeredByUser = true;
-            }
-            if (val <= this.props.settings.max && val >= this.props.settings.min) {
-                var position = this.determinePosition(val);
-                this.setValue(val, triggeredByUser);
-            }
-        }
-    }, {
-        key: 'rangeMouseDown',
-        value: function rangeMouseDown(isTouch, e) {
-            e.stopPropagation();
-            if (!this.props.disabled) {
-                e.preventDefault();
-                this.setState({
-                    mouseDown: true
-                });
-                var innerBoundingClientRect = _reactDom2.default.findDOMNode(this.inner).getBoundingClientRect();
-                this.innerLeft = innerBoundingClientRect.left;
-                this.innerRight = this.innerLeft + this.inner.offsetWidth;
-                var pageX = void 0;
-                e.pageX ? pageX = e.pageX : console.log("PageX undefined");
-                var value = this.determineValue(this.innerLeft, this.innerRight, pageX);
-                if (pageX >= this.innerLeft && pageX <= this.innerRight) {
-                    this.setValuePosition(value, false);
-                }
-            }
-        }
-    }, {
-        key: 'rangeMouseMove',
-        value: function rangeMouseMove(isTouch, e) {
-            e.stopPropagation();
-            e.preventDefault();
-            if (this.state.mouseDown) {
-                var pageX = void 0;
-                e.pageX ? pageX = e.pageX : console.log("PageX undefined");
-                var value = this.determineValue(this.innerLeft, this.innerRight, pageX);
-                if (pageX >= this.innerLeft && pageX <= this.innerRight) {
-                    this.setValuePosition(value, false);
-                }
-            }
-        }
-    }, {
-        key: 'rangeMouseUp',
-        value: function rangeMouseUp() {
-            this.setState({
-                mouseDown: false
-            });
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            this.inner = undefined;
-            this.innerLeft = undefined;
-            this.innerRight = undefined;
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(nextProps) {
-            if (nextProps.value !== this.state.value) {
-                this.setValuePosition(nextProps.value, true);
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    {
-                        style: _extends({}, _rangeCss2.default.range, this.props.disabled ? _rangeCss2.default.disabled : {}, this.props.style),
-                        onMouseDown: this.rangeMouseDown.bind(this, false),
-                        onMouseMove: this.rangeMouseMove.bind(this, false),
-                        onMouseUp: this.rangeMouseUp.bind(this, false),
-                        onTouchStart: this.rangeMouseDown.bind(this, true)
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'semantic_ui_range_inner', ref: function ref(inner) {
-                                _this2.inner = inner;
-                            }, style: _rangeCss2.default.inner },
-                        _react2.default.createElement('div', { style: _extends({}, _rangeCss2.default.track, this.props.inverted ? _rangeCss2.default.invertedTrack : {})
-                        }),
-                        _react2.default.createElement('div', { ref: function ref(trackFill) {
-                                _this2.trackFill = trackFill;
-                            }, style: _extends({}, _rangeCss2.default.trackFill, this.props.inverted ? _rangeCss2.default.invertedTrackFill : {}, { width: this.state.position + this.state.offset + "px" }, _rangeCss2.default[this.props.inverted ? "inverted-" + this.props.color : this.props.color], this.props.disabled ? _rangeCss2.default.disabledTrackFill : {})
-                        }),
-                        _react2.default.createElement('div', { style: _extends({}, _rangeCss2.default.thumb, { left: this.state.position + "px" }) })
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Slider;
-}(_react.Component);
-
-exports.default = Slider;
-
-
-Slider.defaultProps = {
-    color: 'red',
-    settings: {
-        min: 0,
-        max: 10,
-        step: 1,
-        start: 0
-    }
-};
-
-Slider.propTypes = {
-    settings: _propTypes2.default.shape({
-        min: _propTypes2.default.number,
-        max: _propTypes2.default.number,
-        step: _propTypes2.default.number,
-        start: _propTypes2.default.number,
-        onChange: _propTypes2.default.func
-    }),
-    color: _propTypes2.default.string,
-    inverted: _propTypes2.default.bool
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-semantic-ui-range/build/index.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _slider = __webpack_require__("./node_modules/react-semantic-ui-range/build/elements/slider.js");
-
-var _slider2 = _interopRequireDefault(_slider);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = {
-    Slider: _slider2.default
-};
 
 /***/ }),
 
@@ -101783,23 +99970,33 @@ function extend() {
 
 /***/ }),
 
-/***/ "./pages/index.js":
+/***/ "./pages/lovers/forever.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Layout__ = __webpack_require__("./components/Layout.js");
-var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/pages/index.js';
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_spring__ = __webpack_require__("./node_modules/react-spring/dist/react-spring.es.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ethereum_lover__ = __webpack_require__("./ethereum/lover.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ethereum_web3__ = __webpack_require__("./ethereum/web3.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes__ = __webpack_require__("./routes.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__routes__);
+
+var _jsxFileName = '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 (function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
 
-    enterModule && enterModule(module);
+  enterModule && enterModule(module);
 })();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -101810,62 +100007,289 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var LoverIndex = function (_Component) {
-    _inherits(LoverIndex, _Component);
 
-    function LoverIndex() {
-        _classCallCheck(this, LoverIndex);
 
-        return _possibleConstructorReturn(this, (LoverIndex.__proto__ || Object.getPrototypeOf(LoverIndex)).apply(this, arguments));
+
+
+// Little helpers ...
+var url = function url(name) {
+  var wrap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  return (wrap ? 'url(' : '') + 'https://awv3node-homepage.surge.sh/build/assets/' + name + '.svg' + (wrap ? ')' : '');
+};
+
+var LoverForever = function (_Component) {
+  _inherits(LoverForever, _Component);
+
+  function LoverForever() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, LoverForever);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
 
-    _createClass(LoverIndex, [{
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoverForever.__proto__ || Object.getPrototypeOf(LoverForever)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      isLoading: false
+    }, _this.seeAll = function () {
+      _this.setState({ isLoading: true });
+      __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute('/lovers/all');
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(LoverForever, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 48
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('link', { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 50
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */],
+          { ref: function ref(_ref2) {
+              return _this2.parallax = _ref2;
+            }, pages: 1, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 55
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer, { offset: 0, speed: 0, factor: 3, style: { backgroundColor: '#390044', backgroundSize: 'cover' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 58
+            }
+          }),
+          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
+            { offset: 0, speed: 0.8, style: { opacity: 0.1 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 62
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '55%' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 63
+              }
+            }),
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '15%' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 64
+              }
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
+            { offset: 0.75, speed: 0.5, style: { opacity: 0.1 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 67
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '70%' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 68
+              }
+            }),
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '40%' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 69
+              }
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
+            { offset: 0, speed: 0.2, style: { opacity: 0.2 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 72
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '10%', marginLeft: '10%' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 73
+              }
+            }),
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: url('cloud'), style: { display: 'block', width: '20%', marginLeft: '75%' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 74
+              }
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_react_spring__["a" /* Parallax */].Layer,
+            {
+              offset: 0,
+              speed: 0.1,
+              onClick: function onClick() {
+                return _this2.parallax.scrollTo(1);
+              },
+              style: { display: 'flex', alignItems: 'center', justifyContent: 'center' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 79
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["c" /* Container */],
+              { textAlign: 'center', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 84
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 10
-                    }
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 85
+                  }
                 },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Layout__["a" /* default */], {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 11
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["g" /* Header */],
+                  { as: 'h1', inverted: true, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 86
                     }
-                })
-            );
-        }
-    }, {
-        key: '__reactstandin__regenerateByEval',
-        value: function __reactstandin__regenerateByEval(key, code) {
-            this[key] = eval(code);
-        }
-    }]);
+                  },
+                  'It\'s official!'
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["g" /* Header */],
+                  { as: 'h2', inverted: true, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 87
+                    }
+                  },
+                  this.props.yourName,
+                  ' + ',
+                  this.props.loversName,
+                  ' = TRUE '
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["g" /* Header */],
+                  { as: 'h3', inverted: true, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 88
+                    }
+                  },
+                  this.props.message
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["g" /* Header */],
+                  { as: 'h4', inverted: true, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 89
+                    }
+                  },
+                  this.props.yourName,
+                  ' paid ',
+                  __WEBPACK_IMPORTED_MODULE_5__ethereum_web3__["a" /* default */].utils.fromWei(this.props.worth.toString(), 'ether'),
+                  ' ETH for this. So don\'t break up. '
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["d" /* Divider */], { hidden: true, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 90
+                  }
+                }),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["a" /* Button */],
+                  { onClick: this.seeAll, loading: this.state.isLoading, inverted: true, color: 'purple', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 91
+                    }
+                  },
+                  'See All Lovers'
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: '__reactstandin__regenerateByEval',
+    value: function __reactstandin__regenerateByEval(key, code) {
+      this[key] = eval(code);
+    }
+  }], [{
+    key: 'getInitialProps',
+    value: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(props) {
+        var loverAddress, index, info;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
 
-    return LoverIndex;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+                //const lover = Campaign(props.query.address);
+                loverAddress = props.query.address;
+                _context.next = 3;
+                return __WEBPACK_IMPORTED_MODULE_4__ethereum_lover__["a" /* default */].methods.findLover(loverAddress).call();
 
-var _default = LoverIndex;
+              case 3:
+                index = _context.sent;
+                _context.next = 6;
+                return __WEBPACK_IMPORTED_MODULE_4__ethereum_lover__["a" /* default */].methods.loverList(index).call();
+
+              case 6:
+                info = _context.sent;
 
 
+                //const summary = await campaign.methods.getSummary().call();
+                console.log({ info: info });
+
+                return _context.abrupt('return', {
+                  yourName: info[0],
+                  loversName: info[1],
+                  message: info[2],
+                  worth: info[3]
+                });
+
+              case 9:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getInitialProps(_x2) {
+        return _ref3.apply(this, arguments);
+      }
+
+      return getInitialProps;
+    }()
+  }]);
+
+  return LoverForever;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+
+var _default = LoverForever;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
 (function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
 
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
 
-    if (!reactHotLoader) {
-        return;
-    }
+  if (!reactHotLoader) {
+    return;
+  }
 
-    reactHotLoader.register(LoverIndex, 'LoverIndex', '/home/tomasroaldsnes/Code/lovers-for-life/pages/index.js');
-    reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/pages/index.js');
-    leaveModule(module);
+  reactHotLoader.register(url, 'url', '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js');
+  reactHotLoader.register(LoverForever, 'LoverForever', '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js');
+  reactHotLoader.register(_default, 'default', '/home/tomasroaldsnes/Code/lovers-for-life/pages/lovers/forever.js');
+  leaveModule(module);
 })();
 
 ;
@@ -101885,7 +100309,7 @@ var _default = LoverIndex;
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/lovers/forever")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
@@ -101925,14 +100349,6 @@ module.exports = routes;
 
 /***/ }),
 
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/index.js");
-
-
-/***/ }),
-
 /***/ 3:
 /***/ (function(module, exports) {
 
@@ -101959,10 +100375,18 @@ module.exports = __webpack_require__("./pages/index.js");
 
 /* (ignored) */
 
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/lovers/forever.js");
+
+
 /***/ })
 
-},[2])
+},[7])
           return { page: comp.default }
         })
       ;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=forever.js.map

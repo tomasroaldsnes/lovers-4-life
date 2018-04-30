@@ -308,7 +308,7 @@ var FormLovers = function (_Component) {
                                 settings: {
                                     start: 0.0550,
                                     min: 0.0009,
-                                    max: 0.11,
+                                    max: 0.1001,
                                     step: 0.0001,
                                     onChange: function onChange(value) {
                                         _this3.setState({
@@ -1326,7 +1326,7 @@ var Header1 = function Header1() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3__ = __webpack_require__("./ethereum/web3.js");
 
 
-var address = '0xE5bb212f0141e1B9664B449F45588B942E0927Be';
+var address = '0x14A8B67ae05379308eD21FcBa4bbbcF6fD418840';
 
 var abi = [{ "constant": true, "inputs": [], "name": "amountOfLovers", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "l1", "type": "string" }, { "name": "l2", "type": "string" }, { "name": "message", "type": "string" }], "name": "createLover", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [{ "name": "price", "type": "uint256" }], "name": "setPrice", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "loverList", "outputs": [{ "name": "lover1", "type": "string" }, { "name": "lover2", "type": "string" }, { "name": "whyDoYouLove", "type": "string" }, { "name": "worth", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "user", "type": "address" }], "name": "findLover", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
 
@@ -1349,7 +1349,7 @@ var web3 = void 0;
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
     web3 = new __WEBPACK_IMPORTED_MODULE_0_web3___default.a(window.web3.currentProvider);
 } else {
-    var provider = new __WEBPACK_IMPORTED_MODULE_0_web3___default.a.providers.HttpProvider('https://rinkeby.infura.io/xNLneCcy0sYDceVw7n2N');
+    var provider = new __WEBPACK_IMPORTED_MODULE_0_web3___default.a.providers.HttpProvider('https://mainnet.infura.io/xNLneCcy0sYDceVw7n2N');
 
     web3 = new __WEBPACK_IMPORTED_MODULE_0_web3___default.a(provider);
 }

@@ -99,7 +99,7 @@ class FormLovers extends Component {
                 settings={{
                 start: 0.0550,
                 min:0.0009,
-                max:0.11,
+                max:0.1001,
                 step:0.0001,
                 onChange: (value) => {
                   this.setState({
